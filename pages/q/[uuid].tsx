@@ -1,19 +1,15 @@
-import { Menu, Navigation, SupplierInfo } from 'components/menu'
+import { supplier } from '__mock/data'
+import { Layout, SupplierInfo, SearchInput, Menu } from 'components/menu'
 
 export default function QR() {
   return (
-    <div className="max-w-2xl mx-auto px-6 pt-8 pb-52 text-slate-900 dark:bg-slate-800 dark:text-slate-50">
-      <SupplierInfo />
+    <Layout>
+      <SupplierInfo supplier={supplier} />
       <div className="py-6">
-        <input
-          type="text"
-          name="search"
-          placeholder="Search in menu..."
-          className="bg-slate-100 border-none block w-full rounded-md focus:ring-0"
-        />
+        <SearchInput />
       </div>
-      <Menu />
-      <Navigation />
-    </div>
+      {supplier.menu && <Menu menu={supplier.menu} />}
+      {/* <Navigation /> */}
+    </Layout>
   )
 }

@@ -10,6 +10,16 @@ module.exports = {
       fontFamily: {
         sans: ['"OutfitVariable"', 'sans-serif'],
       },
+      colors: {
+        dark: {
+          800: '#1b1f25',
+          900: '#131417',
+        },
+        brand: {
+          500: '#03c39a',
+          600: '#049d81',
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

@@ -7,7 +7,7 @@ interface Props {
 export const Product = ({ product }: Props) => {
   const { name, photo, description, price } = product
   return (
-    <div className="py-5 flex items-center gap-2">
+    <div className="py-5 flex items-center gap-4">
       <div className="flex-1">
         <h3 className="font-medium text-lg mb-1">{name}</h3>
         {description && <p className="opacity-50">{description}</p>}

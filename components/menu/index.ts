@@ -1,5 +1,6 @@
 export * from './layout'
 export * from './search-input'
+export * from './plus-minus'
 export * from './supplier-info'
 export * from './navigation'
 export * from './category'

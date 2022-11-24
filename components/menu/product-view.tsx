@@ -47,7 +47,7 @@ export const ProductView = ({ product }: Props) => {
             onPlus={() => addProduct(product)}
             onMinus={() => removeProduct(id)}
           />
-          <div className="h-full w-0.5 bg-brand-500 absolute top-0 -left-6" />
+          <div className="h-full w-1 bg-brand-500 absolute top-0 -left-6" />
         </>
       )}
     </div>

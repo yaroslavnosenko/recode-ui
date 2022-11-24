@@ -1,7 +1,15 @@
 import { useState } from 'react'
 
 import { supplier } from '__mock/data'
-import { Layout, SupplierInfo, SearchInput, MenuView } from 'components/menu'
+import {
+  Layout,
+  SupplierInfo,
+  SearchInput,
+  MenuView,
+  Navigation,
+  MenuNavigation,
+  OrderButton,
+} from 'components/menu'
 import { MenuContext } from 'components/menu/menu-context'
 import { OrderRow, Product } from 'types'
 
@@ -31,8 +39,6 @@ export default function MenuPage() {
     }
   }
 
-  console.log(order)
-
   return (
     <MenuContext.Provider value={{ order, addProduct, removeProduct }}>
       <Layout>
@@ -41,7 +47,10 @@ export default function MenuPage() {
           <SearchInput />
         </div>
         {supplier.menu && <MenuView menu={supplier.menu} />}
-        {/* <Navigation /> */}
+        <Navigation>
+          <MenuNavigation categories={supplier.menu?.categories || []} />
+          {order.length !== 0 && <OrderButton />}
+        </Navigation>
       </Layout>
     </MenuContext.Provider>
   )

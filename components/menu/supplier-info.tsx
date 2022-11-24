@@ -1,55 +1,29 @@
-import {
-  AspectRatio,
-  Box,
-  BoxProps,
-  Image,
-  Heading,
-  Text,
-  HStack,
-  Icon,
-  Wrap,
-  WrapItem,
-} from '@chakra-ui/react'
-import { FiMapPin, FiPhone, FiWifi } from 'react-icons/fi'
+import { FiPhone, FiMapPin, FiWifi } from 'react-icons/fi'
 
-export const SupplierInfo = ({ ...props }: BoxProps) => {
+export const SupplierInfo = () => {
+  const image = 'http://www.encoretheclub.sk/img/lo1.jpg'
+
   return (
-    <Box {...props}>
-      <AspectRatio ratio={2 / 1}>
-        <Image
-          objectPosition="center"
-          objectFit="cover"
-          alt="photo"
-          src="http://www.encoretheclub.sk/img/lo1.jpg"
-          rounded="xl"
-          boxShadow="md"
-        />
-      </AspectRatio>
-
-      <Heading my="4" size="lg" fontWeight="900">
-        Encore Bar
-      </Heading>
-
-      <Wrap spacing="3">
-        <WrapItem>
-          <HStack spacing="1.5" opacity=".6">
-            <Icon as={FiMapPin} />
-            <Text>Hlavná 111, 040 01 Staré Mesto, Slovakia</Text>
-          </HStack>
-        </WrapItem>
-        <WrapItem>
-          <HStack spacing="1.5" opacity=".6">
-            <Icon as={FiPhone} />
-            <Text>+421 908 400 200</Text>
-          </HStack>
-        </WrapItem>
-        <WrapItem>
-          <HStack spacing="1.5" opacity=".6">
-            <Icon as={FiWifi} />
-            <Text>encore_wifi</Text>
-          </HStack>
-        </WrapItem>
-      </Wrap>
-    </Box>
+    <div>
+      <div
+        className="aspect-[3/1] bg-slate-100 bg-cover bg-center rounded-lg mb-4"
+        style={{ backgroundImage: 'url(' + image + ')' }}
+      />
+      <h1 className="text-3xl font-medium mb-4">Encore Lounge Bar</h1>
+      <div className="flex flex-wrap gap-4 gap-y-2 text-slate-400">
+        <div className="flex items-center gap-2 ">
+          <FiMapPin className="w-5 h-5" />
+          <p>Sabinovská 1, 080 01 Prešov, Slovakia</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <FiPhone className="w-5 h-5" />
+          <p>+421 908 400 200</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <FiWifi className="w-5 h-5" />
+          <p>encore_wifi</p>
+        </div>
+      </div>
+    </div>
   )
 }

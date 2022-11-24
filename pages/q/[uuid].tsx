@@ -1,8 +1,8 @@
-import { Menu, SupplierInfo } from 'components/menu'
+import { Menu, Navigation, SupplierInfo } from 'components/menu'
 
 export default function QR() {
   return (
-    <div className="container max-w-2xl mx-auto px-6 my-8">
+    <div className="max-w-2xl mx-auto px-6 pt-8 pb-52 text-slate-900 dark:bg-slate-800 dark:text-slate-50">
       <SupplierInfo />
       <div className="py-6">
         <input
@@ -13,6 +13,7 @@ export default function QR() {
         />
       </div>
       <Menu />
+      <Navigation />
     </div>
   )
 }

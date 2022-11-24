@@ -1,3 +1,8 @@
+export interface OrderRow {
+  product: Product
+  quantity: number
+}
+
 export interface Product {
   id: string
   price: number

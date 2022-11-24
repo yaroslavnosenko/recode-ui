@@ -12,7 +12,7 @@ export const SupplierInfo = ({ supplier }: Props) => {
     <div>
       {profilePhoto && (
         <div
-          className="aspect-[3/1] bg-dark-800 bg-cover bg-center rounded-lg mb-4"
+          className="aspect-[3/1] bg-light-200 dark:bg-dark-800 bg-cover bg-center rounded-lg mb-4"
           style={{ backgroundImage: 'url(' + profilePhoto + ')' }}
         />
       )}

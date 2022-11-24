@@ -8,7 +8,7 @@ interface Props {
 export const MenuView = ({ menu }: Props) => {
   const { categories } = menu
   return (
-    <div className="grid grid-cols-1 divide-y divide-dark-800">
+    <div className="grid grid-cols-1 divide-y divide-light-200 dark:divide-dark-800">
       {categories &&
         categories.map((cat) => <CategoryView key={cat.id} category={cat} />)}
     </div>

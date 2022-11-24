@@ -25,7 +25,7 @@ export const ProductView = ({ product }: Props) => {
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-1">
             {quantity > 0 && (
-              <div className="bg-brand-600 px-2 font-bold rounded-md">
+              <div className="bg-brand-600 px-2 text-white font-bold rounded-md">
                 {quantity}
               </div>
             )}
@@ -36,7 +36,7 @@ export const ProductView = ({ product }: Props) => {
         </div>
         {photo && (
           <div
-            className="bg-cover bg-dark-800 bg-center rounded-lg h-20 w-20"
+            className="bg-cover bg-light-200 dark:bg-dark-800 bg-center rounded-lg h-20 w-20"
             style={{ backgroundImage: 'url(' + photo + ')' }}
           />
         )}

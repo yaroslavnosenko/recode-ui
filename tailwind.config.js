@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'dark',
+  darkMode: 'media',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -18,7 +18,12 @@ module.exports = {
         },
         brand: {
           500: '#03c39a',
-          600: '#049d81',
+          600: '#0fbc99',
+        },
+        light: {
+          100: '#ffffff',
+          200: '#F7FAFC',
+          300: '#EDF2F7',
         },
       },
     },

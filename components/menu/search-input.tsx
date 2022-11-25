@@ -7,7 +7,7 @@ export const SearchInput = () => {
     <div className="relative">
       <FiSearch className="opacity-50 h-12 w-12 absolute left-0 top-0 p-3" />
       <input
-        className="py-3 px-12 block w-full border-none rounded-md bg-light-300 dark:bg-dark-700 placeholder:text-black dark:placeholder:text-white placeholder:opacity-50 focus:ring-2 focus:ring-brand-500"
+        className="py-3 px-12 block w-full border-none rounded-md bg-light-300 dark:bg-dark-700 placeholder:text-black dark:placeholder:text-white placeholder:opacity-50 focus:ring-2 focus:ring-brand"
         type="text"
         name="search"
         value={value}

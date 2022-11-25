@@ -25,14 +25,14 @@ export const ProductView = ({ product }: Props) => {
         <div className="flex-1">
           <div className="flex items-center gap-3">
             {quantity > 0 && (
-              <div className="bg-brand-600 px-2 text-white font-bold rounded-md">
+              <div className="bg-brand px-2 text-white font-bold rounded-md">
                 {quantity}
               </div>
             )}
             <h3 className="font-medium text-lg">{name}</h3>
           </div>
           {description && <p className="opacity-50">{description}</p>}
-          <p className="mt-1 text-brand-600">${price}</p>
+          <p className="mt-1 text-brand">${price}</p>
         </div>
         {photo && (
           <div
@@ -47,7 +47,7 @@ export const ProductView = ({ product }: Props) => {
             onPlus={() => addProduct(product)}
             onMinus={() => removeProduct(id)}
           />
-          <div className="h-full w-1 bg-brand-500 absolute top-0 -left-6" />
+          <div className="h-full w-1 bg-brand absolute top-0 -left-6" />
         </>
       )}
     </div>

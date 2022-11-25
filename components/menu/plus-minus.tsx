@@ -15,7 +15,7 @@ export const PlusMinus = ({ onMinus, onPlus }: Props) => {
         <FiMinus strokeWidth={3} className="opacity-50" />
       </button>
       <button
-        className="bg-brand-600 text-white flex-1 flex items-center justify-center rounded-md py-2 active:opacity-50"
+        className="bg-brand text-white flex-1 flex items-center justify-center rounded-md py-2 active:opacity-50"
         onClick={onPlus}
       >
         <FiPlus strokeWidth={3} />

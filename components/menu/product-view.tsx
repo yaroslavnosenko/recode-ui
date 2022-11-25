@@ -23,7 +23,7 @@ export const ProductView = ({ product }: Props) => {
         onClick={() => addProduct(product)}
       >
         <div className="flex-1">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {quantity > 0 && (
               <div className="bg-brand px-2 text-white font-bold rounded-md">
                 {quantity}

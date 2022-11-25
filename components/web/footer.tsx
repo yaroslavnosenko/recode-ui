@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <footer>
       <Container>
-        <div className="grid grid-cols-2 items-baseline py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-baseline py-6 gap-3">
           <div className="flex gap-6">
             {LINKS.map((link) => (
               <Link
@@ -23,7 +23,7 @@ export const Footer = () => {
               </Link>
             ))}
           </div>
-          <p className="opacity-50 text-end">Copyright@Rcore 2022</p>
+          <p className="opacity-50 md:text-end">Copyright@Rcore 2022</p>
         </div>
       </Container>
     </footer>

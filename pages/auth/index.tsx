@@ -12,8 +12,8 @@ const LINKS = [
 
 const LoginForm = () => {
   return (
-    <div className="flex justify-center items-center">
-      <div className="flex-1 max-w-sm">
+    <div className="flex flex-col md:flex-row md:justify-center md:items-center">
+      <div className="flex-1 md:max-w-sm">
         <div>
           <input
             className="text-lg placeholder:text-white placeholder:opacity-50 h-14 px-6 rounded-md bg-white/10 w-full block border-none focus:ring-2 focus:ring-brand"
@@ -33,8 +33,11 @@ const LoginForm = () => {
           </button>
         </div>
       </div>
-      <div className="px-20 text-4xl font-extralight">/</div>
-      <div className="flex-1 max-w-sm">
+
+      <div className="p-20 text-4xl font-extralight hidden md:block">/</div>
+      <hr className="block md:hidden my-8 border-dark-700" />
+
+      <div className="flex-1 md:max-w-sm">
         <div>
           {LINKS.map((link) => (
             <div
@@ -62,14 +65,16 @@ export default function Auth() {
       <div className="py-12">
         <Container>
           <div className="text-center">
-            <h1 className="font-bold text-5xl">Login to Your Account</h1>
-            <p className="mx-auto opacity-50 text-lg font-light mt-6 max-w-2xl">
+            <h1 className="font-bold text-5xl leading-normal">
+              Login to Your Account
+            </h1>
+            <p className="mx-auto opacity-50 text-lg font-light mt-4 max-w-2xl">
               A utility-first CSS framework packed with classes like flex and
               rotate-90 that can be composed to build any design, directly in
               your markup.
             </p>
           </div>
-          <div className="py-8">
+          <div className="py-10">
             <LoginForm />
           </div>
           <p className="text-center mt-6">

@@ -13,13 +13,13 @@ export const Header = () => {
   return (
     <header className="bg-dark-900">
       <Container>
-        <div className="grid grid-cols-[1fr_minmax(0,_1fr)_1fr] items-baseline py-6">
+        <div className="grid grid-cols-2 md:grid-cols-[1fr_minmax(0,_1fr)_1fr] items-baseline py-6">
           <div>
             <Link className="font-medium text-2xl" href="/">
               Rcode
             </Link>
           </div>
-          <div className="text-center flex gap-6 justify-center">
+          <div className="hidden text-center md:flex gap-6 justify-center">
             {LINKS.map((link) => (
               <Link
                 className="opacity-70 hover:opacity-100"

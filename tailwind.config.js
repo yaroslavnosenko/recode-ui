@@ -2,6 +2,7 @@
 module.exports = {
   darkMode: 'media',
   content: [
+    './node_modules/flowbite-react/**/*.js',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
@@ -28,5 +29,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('flowbite/plugin')],
 }

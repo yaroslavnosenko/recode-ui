@@ -48,11 +48,12 @@ export const Pricing = () => {
         <Feature>Both a mobile and a desktop version of the menu</Feature>
       </div>
       <div>
-        <Phone colorClasses="bg-dark-700">
+        <Phone colorClasses="dark:bg-dark-700 bg-light-300">
           <div className="px-6 text-center">
             <p className="text-md mb-4">Scan QR Code bellow to see demo</p>
-            <div className="bg-dark-700">
+            <div className="dark:bg-dark-700 bg-light-300">
               <Image
+                className=""
                 alt="Demo QR Code"
                 src={'/qr-demo.svg'}
                 width="280"

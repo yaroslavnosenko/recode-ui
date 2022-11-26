@@ -4,7 +4,7 @@ import { Footer, Header } from 'components/web'
 
 export const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="min-h-screen bg-dark-900 text-white flex flex-col">
+    <div className="min-h-scree flex flex-col">
       <Header />
       <main className="flex-1 pt-20">{children}</main>
       <Footer />

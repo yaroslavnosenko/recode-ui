@@ -26,7 +26,11 @@ export default function Index() {
         <div className="py-16 md:py-32">
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="font-medium text-3xl md:text-5xl leading-normal">
-              Recode <span className="opacity-50">QR Code</span> Menu
+              Recode{' '}
+              <span className="text-brand dark:text-light-100 dark:opacity-50">
+                QR Code
+              </span>{' '}
+              Menu
             </h1>
             <p className="opacity-50 text-lg font-light mt-4">
               A utility-first CSS framework packed with classes like flex and
@@ -39,7 +43,7 @@ export default function Index() {
               <CtaButton />
             </div>
             <Link
-              className="hover:opacity-70 active:opacity-50 inline-flex font-medium items-center justify-between py-3 px-5 text-md text-white"
+              className="hover:opacity-70 active:opacity-50 inline-flex font-medium items-center justify-between py-3 px-5 text-md dark:text-white"
               href={ROUTES.QR('demo')}
             >
               <p className="mr-4">See Demo</p>
@@ -83,7 +87,7 @@ export default function Index() {
             />
           </div>
           <div>
-            <Phone colorClasses="bg-dark-700">
+            <Phone colorClasses="bg-light-300 dark:bg-dark-700">
               <Image
                 className="rounded-3xl"
                 alt="Screenshot Dark"
@@ -146,7 +150,7 @@ export default function Index() {
       {/* PRICING */}
       <Container>
         <div
-          className="py-16 md:py-32 max-w-5xl items-center mx-auto border-t border-t-dark-700"
+          className="py-16 md:py-32 max-w-5xl items-center mx-auto border-t dark:border-t-dark-700 border-t-light-300"
           id="pricing"
         >
           <Pricing />

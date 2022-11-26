@@ -16,18 +16,18 @@ const LoginForm = () => {
       <div className="flex-1 md:max-w-sm">
         <div>
           <input
-            className="text-lg placeholder:text-white placeholder:opacity-50 h-14 px-6 rounded-md bg-white/10 w-full block border-none focus:ring-2 focus:ring-brand"
+            className="text-lg placeholder:text-dark-900 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 w-full block border-none focus:ring-2 focus:ring-brand"
             type="text"
             placeholder="Username"
           />
           <input
-            className="mt-4 text-lg placeholder:text-white placeholder:opacity-50 h-14 px-6 rounded-md bg-white/10 w-full block border-none focus:ring-2 focus:ring-brand"
+            className="mt-4 text-lg placeholder:text-dark-900 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 w-full block border-none focus:ring-2 focus:ring-brand"
             type="password"
             placeholder="8 Digit Pin"
             maxLength={8}
             minLength={8}
           />
-          <button className="active:opacity-50 flex font-medium items-center justify-between mt-4 h-14 px-6 rounded-md text-xl w-full text-dark-900 bg-gradient-to-r from-brand via-brand to-yellow-400 hover:to-yellow-500">
+          <button className="active:opacity-50 flex font-medium items-center justify-between mt-4 h-14 px-6 rounded-md text-xl w-full text-light-100 dark:text-dark-900 bg-gradient-to-r from-brand via-brand to-yellow-400 hover:to-yellow-500">
             <p>Login to Your Account</p>
             <FiArrowRight strokeWidth={3} />
           </button>
@@ -45,7 +45,7 @@ const LoginForm = () => {
               key={link.text}
             >
               <Link
-                className="rounded-md h-full flex px-6 items-center text-md w-full text-white bg-dark-900 hover:bg-transparent"
+                className="rounded-md h-full flex px-6 items-center text-md w-full bg-light-100 dark:text-white dark:bg-dark-900 hover:bg-transparent hover:text-light-100"
                 href="/"
               >
                 {link.icon}

@@ -13,7 +13,7 @@ const LINKS = [
 
 export const Header = () => {
   return (
-    <header className="bg-dark-900/70 fixed w-screen z-50 backdrop-blur-lg">
+    <header className="bg-light-100/70 dark:bg-dark-900/70 fixed w-screen z-50 backdrop-blur-lg">
       <Container>
         <div className="grid grid-cols-2 md:grid-cols-[1fr_minmax(0,_1fr)_1fr] items-baseline py-6">
           <div>

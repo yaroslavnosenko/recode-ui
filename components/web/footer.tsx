@@ -1,11 +1,12 @@
 import Link from 'next/link'
 
 import { Container } from 'components/web'
+import { ROUTES } from 'configs'
 
 const LINKS = [
   { href: '/', text: 'Privacy Policy' },
   { href: '/', text: 'Terms' },
-  { href: '/', text: 'Contacts' },
+  { href: ROUTES.CONTACTS, text: 'Contacts' },
 ]
 
 export const Footer = () => {
@@ -24,7 +25,7 @@ export const Footer = () => {
               </Link>
             ))}
           </div>
-          <p className="opacity-50 md:text-end">Copyright@Rcore 2022</p>
+          <p className="opacity-50 md:text-end">Copyright@Recore 2022</p>
         </div>
       </Container>
     </footer>

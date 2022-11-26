@@ -145,7 +145,10 @@ export default function Index() {
 
       {/* PRICING */}
       <Container>
-        <div className="py-16 md:py-32 max-w-5xl items-center mx-auto border-t border-t-dark-700">
+        <div
+          className="py-16 md:py-32 max-w-5xl items-center mx-auto border-t border-t-dark-700"
+          id="pricing"
+        >
           <Pricing />
         </div>
       </Container>

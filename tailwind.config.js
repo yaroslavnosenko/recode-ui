@@ -23,6 +23,9 @@ module.exports = {
         },
         brand: '#0d9488',
       },
+      aspectRatio: {
+        phone: '360 / 740',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

@@ -5,6 +5,7 @@ import { Container } from 'components/web'
 const LINKS = [
   { href: '/', text: 'Privacy Policy' },
   { href: '/', text: 'Terms' },
+  { href: '/', text: 'Contacts' },
 ]
 
 export const Footer = () => {

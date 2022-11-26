@@ -1,11 +1,25 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { FiArrowRight, FiCheckCircle, FiExternalLink } from 'react-icons/fi'
+import { PropsWithChildren } from 'react'
+import { FiArrowRight, FiCheckCircle } from 'react-icons/fi'
+
+import { CtaButton } from './cta-button'
+import { Phone } from './phone'
 
 import { ROUTES } from 'configs'
 
+const Feature = ({ children }: PropsWithChildren) => {
+  return (
+    <div className="flex mt-4 items-center">
+      <FiCheckCircle className="w-5 h-5 min-w-[20px] text-brand" />
+      <p className="ml-4">{children}</p>
+    </div>
+  )
+}
+
 export const Pricing = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
       <div>
         <h2 className="text-md text-brand font-bold uppercase tracking-widest">
           Pricing
@@ -14,52 +28,46 @@ export const Pricing = () => {
           Working with digital menu is easier. Loading of the menu is faster.
           There is more useful information in digital menu.
         </p>
-        <div className="flex py-4 items-baseline">
-          <p className="text-4xl font-medium leading-tight">$39</p>
+        <div className="flex py-8 items-baseline">
+          <p className="text-5xl font-medium leading-tight">$39</p>
           <p className="opacity-50 ml-2">per month</p>
         </div>
-        <Link
-          className="mb-4 inline-flex active:opacity-50 font-medium items-center justify-between py-3 px-5 rounded-full text-md text-dark-900 bg-gradient-to-r from-brand via-brand to-yellow-400 hover:to-yellow-500"
-          href={ROUTES.AUTH}
-        >
-          <p className="mr-4">Get Started</p>
-          <FiArrowRight strokeWidth={3} />
-        </Link>
-        <div className="flex mt-4 items-center">
-          <FiCheckCircle className="w-5 h-5 text-brand" />
-          <p className="ml-4">Hello</p>
+
+        <div className="inline-block mb-8">
+          <CtaButton />
         </div>
-        <div className="flex mt-4 items-center">
-          <FiCheckCircle className="w-5 h-5 text-brand" />
-          <p className="ml-4">Hello</p>
-        </div>
-        <div className="flex mt-4 items-center">
-          <FiCheckCircle className="w-5 h-5 text-brand" />
-          <p className="ml-4">Hello</p>
-        </div>
-        <div className="flex mt-4 items-center">
-          <FiCheckCircle className="w-5 h-5 text-brand" />
-          <p className="ml-4">Hello</p>
-        </div>
+
+        <Feature>An ability to remotely edit your menu</Feature>
+        <Feature>
+          Unlimited photos and description loading for your QR code menu
+        </Feature>
+        <Feature>
+          Additional restaurant information feature (Address, Phone number, Map,
+          Wi-Fi password)
+        </Feature>
+        <Feature>Both a mobile and a desktop version of the menu</Feature>
       </div>
       <div>
-        <p className="text-md text-center mb-4">
-          Scan QR Code bellow to see demo
-        </p>
-        <div className="mx-auto w-72 rounded-3xl bg-dark-700">
-          <img
-            className="rounded-[1.25rem] aspect-square"
-            src="/qr-demo.svg"
-            alt="Image Description"
-          />
-        </div>
-        <a
-          href="#"
-          className="flex items-center text-brand hover:underline justify-center mt-4"
-        >
-          See demo
-          <FiExternalLink className="w-5 h-5 ml-2" />
-        </a>
+        <Phone colorClasses="bg-dark-700">
+          <div className="px-6 text-center">
+            <p className="text-md mb-4">Scan QR Code bellow to see demo</p>
+            <div className="bg-dark-700">
+              <Image
+                alt="Demo QR Code"
+                src={'/qr-demo.svg'}
+                width="280"
+                height="280"
+              />
+            </div>
+            <Link
+              className="hover:opacity-70 active:opacity-50 inline-flex font-medium items-center justify-between py-3 px-5 text-md text-brand"
+              href={ROUTES.QR('demo')}
+            >
+              <p className="mr-4">See Demo</p>
+              <FiArrowRight strokeWidth={3} />
+            </Link>
+          </div>
+        </Phone>
       </div>
     </div>
   )

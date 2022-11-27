@@ -26,7 +26,6 @@ export const Navigation: ChakraComponent<'div', {}> = (props: StackProps) => {
       h="100%"
       maxH="100%"
       w="56"
-      bg="white"
       spacing="0"
       divider={<StackDivider />}
       zIndex={2}
@@ -36,8 +35,7 @@ export const Navigation: ChakraComponent<'div', {}> = (props: StackProps) => {
         <Link
           className="font-medium text-2xl"
           display="block"
-          py="6"
-          px="4"
+          p="6"
           _hover={{ textDecoration: 'none' }}
         >
           Recode
@@ -46,7 +44,7 @@ export const Navigation: ChakraComponent<'div', {}> = (props: StackProps) => {
       <Menu />
       <NavLink to={APP_ROUTES.SETTINGS}>
         <Link _hover={{ textDecoration: 'none' }}>
-          <HStack p="4" spacing="4">
+          <HStack p="6" spacing="4">
             <Avatar rounded="md" boxSize="8" name={'IVAN'} bg="gray.900" />
             <Box flex="1">
               <Heading as="p" size="xs">

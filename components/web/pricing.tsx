@@ -53,7 +53,7 @@ export const Pricing = () => {
             <p className="text-md mb-4">Scan QR Code bellow to see demo</p>
             <div className="dark:bg-dark-700 bg-light-300">
               <Image
-                className=""
+                className="dark:invert"
                 alt="Demo QR Code"
                 src={'/qr-demo.svg'}
                 width="280"

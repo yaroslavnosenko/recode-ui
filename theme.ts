@@ -5,5 +5,10 @@ export const theme = extendTheme({
     heading: `'OutfitVariable', sans-serif`,
     body: `'OutfitVariable', sans-serif`,
   },
-  styles: { global: { body: { bg: 'gray.50', color: 'gray.900' } } },
+  styles: {
+    global: {
+      html: { '-webkit-font-smoothing': 'auto' },
+      body: { bg: 'gray.50', color: 'gray.900' },
+    },
+  },
 })

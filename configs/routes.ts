@@ -8,4 +8,8 @@ export const ROUTES = {
   AUTH: '/auth',
 }
 
-export const APP_ROUTES = {}
+export const APP_ROUTES = {
+  APP: ROUTES.APP,
+  ORDERS: ROUTES.APP + '/orders',
+  SETTINGS: ROUTES.APP + '/settings',
+}

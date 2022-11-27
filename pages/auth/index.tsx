@@ -16,12 +16,12 @@ const LoginForm = () => {
       <div className="flex-1 md:max-w-sm">
         <div>
           <input
-            className="text-lg placeholder:text-dark-900 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 w-full block border-none focus:ring-2 focus:ring-brand"
+            className="text-lg placeholder:text-dark-900 dark:placeholder:text-light-100 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 dark:bg-light-100/10 w-full block border-none focus:ring-2 focus:ring-brand"
             type="text"
             placeholder="Username"
           />
           <input
-            className="mt-4 text-lg placeholder:text-dark-900 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 w-full block border-none focus:ring-2 focus:ring-brand"
+            className="mt-4 text-lg placeholder:text-dark-900 dark:placeholder:text-light-100 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 dark:bg-light-100/10 w-full block border-none focus:ring-2 focus:ring-brand"
             type="password"
             placeholder="8 Digit Pin"
             maxLength={8}

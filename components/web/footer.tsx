@@ -6,7 +6,7 @@ import { ROUTES } from 'configs'
 const LINKS = [
   { href: '/', text: 'Privacy Policy' },
   { href: '/', text: 'Terms' },
-  { href: ROUTES.CONTACTS, text: 'Contacts' },
+  { href: ROUTES.CONTACTS, text: 'Support' },
 ]
 
 export const Footer = () => {
@@ -25,7 +25,7 @@ export const Footer = () => {
               </Link>
             ))}
           </div>
-          <p className="opacity-50 md:text-end">Copyright@Recore 2022</p>
+          <p className="opacity-50 md:text-end">Copyright@Recode 2022</p>
         </div>
       </Container>
     </footer>

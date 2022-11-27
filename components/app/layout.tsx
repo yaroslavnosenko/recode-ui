@@ -18,11 +18,11 @@ export const Layout = ({ children }: PropsWithChildren) => {
   console.log(bp)
   return (
     <>
-      <Navigation display={{ base: 'none', lg: 'flex' }} />
+      <Navigation onClose={setNav.off} display={{ base: 'none', lg: 'flex' }} />
       <Drawer isOpen={nav} onClose={setNav.toggle} placement="left">
         <DrawerOverlay />
         <DrawerContent>
-          <Navigation position="relative" w="100%" />
+          <Navigation onClose={setNav.off} position="relative" w="100%" />
         </DrawerContent>
       </Drawer>
       <Header

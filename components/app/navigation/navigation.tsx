@@ -3,19 +3,27 @@ import {
   Heading,
   Stack,
   Link,
-  HStack,
-  Avatar,
   StackDivider,
   ChakraComponent,
   StackProps,
+  HStack,
+  IconButton,
 } from '@chakra-ui/react'
+import { FiX } from 'react-icons/fi'
 import { NavLink } from 'react-router-dom'
 
 import { Menu } from './menu'
 
 import { APP_ROUTES } from 'configs'
 
-export const Navigation: ChakraComponent<'div', {}> = (props: StackProps) => {
+interface Props extends StackProps {
+  onClose: () => void
+}
+
+export const Navigation: ChakraComponent<'div', Props> = ({
+  onClose,
+  ...props
+}: Props) => {
   return (
     <Stack
       as="nav"
@@ -31,27 +39,32 @@ export const Navigation: ChakraComponent<'div', {}> = (props: StackProps) => {
       zIndex={2}
       {...props}
     >
-      <NavLink to={APP_ROUTES.APP}>
-        <Link
-          className="font-medium text-2xl"
-          display="block"
-          p="6"
-          _hover={{ textDecoration: 'none' }}
-        >
-          Recode
-        </Link>
-      </NavLink>
+      <HStack p="6" mr="-3" justify="space-between">
+        <NavLink to={APP_ROUTES.APP}>
+          <Link
+            className="font-medium text-2xl"
+            display="block"
+            _hover={{ textDecoration: 'none' }}
+          >
+            Recode
+          </Link>
+        </NavLink>
+        <IconButton
+          display={{ base: 'block', lg: 'none' }}
+          onClick={onClose}
+          icon={<FiX />}
+          bg="none"
+          aria-label="close"
+        />
+      </HStack>
       <Menu />
       <NavLink to={APP_ROUTES.SETTINGS}>
         <Link _hover={{ textDecoration: 'none' }}>
-          <HStack p="6" spacing="4">
-            <Avatar rounded="md" boxSize="8" name={'IVAN'} bg="gray.900" />
-            <Box flex="1">
-              <Heading as="p" size="xs">
-                NAME
-              </Heading>
-            </Box>
-          </HStack>
+          <Box p="6">
+            <Heading as="p" size="xs" noOfLines={1}>
+              ENCORE LOUNGE BAR
+            </Heading>
+          </Box>
         </Link>
       </NavLink>
     </Stack>

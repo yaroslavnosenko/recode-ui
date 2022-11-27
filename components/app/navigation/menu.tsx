@@ -2,9 +2,10 @@ import { Button, Icon, Stack } from '@chakra-ui/react'
 import { PropsWithChildren } from 'react'
 import { IconType } from 'react-icons'
 import {
+  FiBell,
   FiBox,
-  FiClipboard,
   FiFolder,
+  FiSettings,
   FiShoppingBag,
   FiUsers,
 } from 'react-icons/fi'
@@ -45,7 +46,7 @@ const MenuItem = ({
 export const Menu = () => {
   return (
     <Stack p="6" spacing="1" overflow="scroll" as="menu" flex="1" m="0">
-      <MenuItem icon={FiClipboard} href={APP_ROUTES.ORDERS}>
+      <MenuItem icon={FiBell} href={APP_ROUTES.ORDERS}>
         Orders
       </MenuItem>
       <MenuItem icon={FiFolder} href={APP_ROUTES.CATEGORIES}>
@@ -59,6 +60,9 @@ export const Menu = () => {
       </MenuItem>
       <MenuItem icon={FiBox} href={APP_ROUTES.PLACEMENTS}>
         Placements
+      </MenuItem>
+      <MenuItem icon={FiSettings} href={APP_ROUTES.SETTINGS}>
+        Settings
       </MenuItem>
     </Stack>
   )

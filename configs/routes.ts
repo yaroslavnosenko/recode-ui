@@ -16,4 +16,5 @@ export const APP_ROUTES = {
   EMPLOYEES: ROUTES.APP + '/employees',
   PLACEMENTS: ROUTES.APP + '/placements',
   SETTINGS: ROUTES.APP + '/settings',
+  ME: ROUTES.APP + '/me',
 }

@@ -8,6 +8,15 @@ const nextConfig = {
       { source: '/app/:any*', destination: '/app/' },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/app',
+        destination: '/app/orders',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

@@ -19,7 +19,9 @@ const App: NextPage<AppProps> = ({ token }) => {
   const [mounted, setMounted] = useBoolean(false)
   useEffect(() => setMounted.on, [setMounted])
 
-  return !mounted ? null : (
+  return !mounted ? (
+    <>Hello</>
+  ) : (
     <ChakraProvider theme={theme}>
       <Router>
         <Layout>

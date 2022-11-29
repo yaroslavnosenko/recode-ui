@@ -17,7 +17,9 @@ interface AppProps {
 const App: NextPage<AppProps> = ({ token }) => {
   const { data: session } = useSession()
   const [mounted, setMounted] = useBoolean(false)
-  useEffect(() => setMounted.on, [setMounted])
+  useEffect(() => {
+    setMounted.on()
+  }, [setMounted])
 
   return !mounted ? (
     <>Hello</>

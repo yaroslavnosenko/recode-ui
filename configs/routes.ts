@@ -10,11 +10,12 @@ export const ROUTES = {
 
 export const APP_ROUTES = {
   APP: ROUTES.APP,
-  ORDERS: ROUTES.APP + '/orders',
-  CATEGORIES: ROUTES.APP + '/categories',
-  PRODUCTS: ROUTES.APP + '/products',
-  EMPLOYEES: ROUTES.APP + '/employees',
-  PLACEMENTS: ROUTES.APP + '/placements',
-  SETTINGS: ROUTES.APP + '/settings',
-  ME: ROUTES.APP + '/me',
+  START: '/start',
+  ORDERS: '/orders',
+  CATEGORIES: '/categories',
+  PRODUCTS: '/products',
+  EMPLOYEES: '/employees',
+  PLACEMENTS: '/placements',
+  SETTINGS: '/settings',
+  ME: '/me',
 }

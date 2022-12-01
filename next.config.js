@@ -13,7 +13,7 @@ const nextConfig = {
       {
         source: '/app',
         destination: '/app/orders',
-        permanent: true,
+        permanent: false,
       },
     ]
   },

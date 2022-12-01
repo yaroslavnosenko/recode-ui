@@ -1,8 +1,12 @@
+import { getToken } from 'next-auth/jwt'
+import { signIn } from 'next-auth/react'
 import Link from 'next/link'
+import { NextRequest } from 'next/server'
 import { FiUserPlus, FiArrowRight } from 'react-icons/fi'
 import { SiApple, SiGoogle } from 'react-icons/si'
 
 import { Container, Layout } from 'components/web'
+import { ROUTES } from 'configs'
 
 const LINKS = [
   { text: 'Create new Account', icon: <FiUserPlus strokeWidth={3} /> },
@@ -84,9 +88,24 @@ export default function Auth() {
             >
               Forgot Password?
             </Link>
+            <button onClick={() => signIn()}>Sign in</button>
           </p>
         </Container>
       </div>
     </Layout>
   )
+}
+
+export async function getServerSideProps(context: any) {
+  const req = context.req as NextRequest
+  const secret = process.env.NEXTAUTH_SECRET
+  const token = await getToken({ req, secret, raw: true })
+  return !token
+    ? { props: {} }
+    : {
+        redirect: {
+          permanent: false,
+          destination: ROUTES.APP,
+        },
+      }
 }

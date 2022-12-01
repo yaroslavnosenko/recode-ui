@@ -41,13 +41,15 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     // Add the required Hasura claims
     // https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/#the-spec
+
+    // TODO remove admin role
     async jwt({ token }) {
       return {
         ...token,
         'https://hasura.io/jwt/claims': {
-          'x-hasura-allowed-roles': ['user'],
-          'x-hasura-default-role': 'user',
-          'x-hasura-role': 'user',
+          'x-hasura-allowed-roles': ['admin'],
+          'x-hasura-default-role': 'admin',
+          'x-hasura-role': 'admin',
           'x-hasura-user-id': token.sub,
         },
       }

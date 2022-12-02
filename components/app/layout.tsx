@@ -4,7 +4,6 @@ import {
   DrawerContent,
   DrawerOverlay,
   useBoolean,
-  useBreakpoint,
 } from '@chakra-ui/react'
 import { PropsWithChildren } from 'react'
 
@@ -14,8 +13,6 @@ const HeaderDesktopWidth = 'calc(100% - var(--chakra-space-56))'
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const [nav, setNav] = useBoolean()
-  const bp = useBreakpoint()
-  console.log(bp)
   return (
     <>
       <Navigation onClose={setNav.off} display={{ base: 'none', lg: 'flex' }} />

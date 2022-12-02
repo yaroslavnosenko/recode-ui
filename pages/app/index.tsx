@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Categories, Me, Settings, Start } from 'components/app'
 import { APP_ROUTES, ROUTES } from 'configs'
+import { TokenContext } from 'hooks'
 import { createApolloClient } from 'libs'
 import { theme } from 'theme'
 
@@ -24,22 +25,24 @@ const App: NextPage<AppProps> = ({ token }) => {
   if (!mounted || !token) return null
   const client = createApolloClient(token)
   return (
-    <ApolloProvider client={client}>
-      <ChakraProvider theme={theme}>
-        <BrowserRouter basename={APP_ROUTES.APP}>
-          <Routes>
-            <Route path={APP_ROUTES.START} element={<Start />} />
-            <Route path={APP_ROUTES.ORDERS} element={<Settings />} />
-            <Route path={APP_ROUTES.CATEGORIES} element={<Categories />} />
-            <Route path={APP_ROUTES.PRODUCTS} element={<Settings />} />
-            <Route path={APP_ROUTES.EMPLOYEES} element={<Settings />} />
-            <Route path={APP_ROUTES.PLACEMENTS} element={<Settings />} />
-            <Route path={APP_ROUTES.SETTINGS} element={<Settings />} />
-            <Route path={APP_ROUTES.ME} element={<Me />} />
-          </Routes>
-        </BrowserRouter>
-      </ChakraProvider>
-    </ApolloProvider>
+    <TokenContext.Provider value={token}>
+      <ApolloProvider client={client}>
+        <ChakraProvider theme={theme}>
+          <BrowserRouter basename={APP_ROUTES.APP}>
+            <Routes>
+              <Route path={APP_ROUTES.START} element={<Start />} />
+              <Route path={APP_ROUTES.ORDERS} element={<Settings />} />
+              <Route path={APP_ROUTES.CATEGORIES} element={<Categories />} />
+              <Route path={APP_ROUTES.PRODUCTS} element={<Settings />} />
+              <Route path={APP_ROUTES.EMPLOYEES} element={<Settings />} />
+              <Route path={APP_ROUTES.PLACEMENTS} element={<Settings />} />
+              <Route path={APP_ROUTES.SETTINGS} element={<Settings />} />
+              <Route path={APP_ROUTES.ME} element={<Me />} />
+            </Routes>
+          </BrowserRouter>
+        </ChakraProvider>
+      </ApolloProvider>
+    </TokenContext.Provider>
   )
 }
 

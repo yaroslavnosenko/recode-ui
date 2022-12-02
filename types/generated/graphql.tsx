@@ -1438,9 +1438,9 @@ export type Merchants = {
   __typename?: 'merchants'
   address?: Maybe<Scalars['String']>
   currency: Scalars['String']
-  /** An array relationship */
+  /** fetch data from the table: "employees" */
   employees: Array<Employees>
-  /** An aggregate relationship */
+  /** fetch aggregated fields from the table: "employees" */
   employees_aggregate: Employees_Aggregate
   id: Scalars['uuid']
   lang: Scalars['String']
@@ -3752,9 +3752,9 @@ export type Query_Root = {
   customers_aggregate: Customers_Aggregate
   /** fetch data from the table: "customers" using primary key columns */
   customers_by_pk?: Maybe<Customers>
-  /** An array relationship */
+  /** fetch data from the table: "employees" */
   employees: Array<Employees>
-  /** An aggregate relationship */
+  /** fetch aggregated fields from the table: "employees" */
   employees_aggregate: Employees_Aggregate
   /** fetch data from the table: "employees" using primary key columns */
   employees_by_pk?: Maybe<Employees>
@@ -3806,10 +3806,6 @@ export type Query_Root = {
   sessions_aggregate: Sessions_Aggregate
   /** fetch data from the table: "sessions" using primary key columns */
   sessions_by_pk?: Maybe<Sessions>
-  /** execute function "user" which returns "users" */
-  user?: Maybe<Users>
-  /** execute function "user" and query aggregates on result of table type "users" */
-  user_aggregate: Users_Aggregate
   /** fetch data from the table: "users" */
   users: Array<Users>
   /** fetch aggregated fields from the table: "users" */
@@ -4062,22 +4058,6 @@ export type Query_RootSessions_AggregateArgs = {
 
 export type Query_RootSessions_By_PkArgs = {
   id: Scalars['uuid']
-}
-
-export type Query_RootUserArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>
-  limit?: InputMaybe<Scalars['Int']>
-  offset?: InputMaybe<Scalars['Int']>
-  order_by?: InputMaybe<Array<Users_Order_By>>
-  where?: InputMaybe<Users_Bool_Exp>
-}
-
-export type Query_RootUser_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>
-  limit?: InputMaybe<Scalars['Int']>
-  offset?: InputMaybe<Scalars['Int']>
-  order_by?: InputMaybe<Array<Users_Order_By>>
-  where?: InputMaybe<Users_Bool_Exp>
 }
 
 export type Query_RootUsersArgs = {
@@ -4348,9 +4328,9 @@ export type Subscription_Root = {
   customers_by_pk?: Maybe<Customers>
   /** fetch data from the table in a streaming manner: "customers" */
   customers_stream: Array<Customers>
-  /** An array relationship */
+  /** fetch data from the table: "employees" */
   employees: Array<Employees>
-  /** An aggregate relationship */
+  /** fetch aggregated fields from the table: "employees" */
   employees_aggregate: Employees_Aggregate
   /** fetch data from the table: "employees" using primary key columns */
   employees_by_pk?: Maybe<Employees>
@@ -4420,10 +4400,6 @@ export type Subscription_Root = {
   sessions_by_pk?: Maybe<Sessions>
   /** fetch data from the table in a streaming manner: "sessions" */
   sessions_stream: Array<Sessions>
-  /** execute function "user" which returns "users" */
-  user?: Maybe<Users>
-  /** execute function "user" and query aggregates on result of table type "users" */
-  user_aggregate: Users_Aggregate
   /** fetch data from the table: "users" */
   users: Array<Users>
   /** fetch aggregated fields from the table: "users" */
@@ -4754,22 +4730,6 @@ export type Subscription_RootSessions_StreamArgs = {
   where?: InputMaybe<Sessions_Bool_Exp>
 }
 
-export type Subscription_RootUserArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>
-  limit?: InputMaybe<Scalars['Int']>
-  offset?: InputMaybe<Scalars['Int']>
-  order_by?: InputMaybe<Array<Users_Order_By>>
-  where?: InputMaybe<Users_Bool_Exp>
-}
-
-export type Subscription_RootUser_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>
-  limit?: InputMaybe<Scalars['Int']>
-  offset?: InputMaybe<Scalars['Int']>
-  order_by?: InputMaybe<Array<Users_Order_By>>
-  where?: InputMaybe<Users_Bool_Exp>
-}
-
 export type Subscription_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>
   limit?: InputMaybe<Scalars['Int']>
@@ -4891,6 +4851,7 @@ export type UsersSessions_AggregateArgs = {
   where?: InputMaybe<Sessions_Bool_Exp>
 }
 
+/** aggregated selection of "users" */
 export type Users_Aggregate = {
   __typename?: 'users_aggregate'
   aggregate?: Maybe<Users_Aggregate_Fields>

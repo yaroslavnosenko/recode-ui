@@ -1,3 +1,4 @@
+import { useQuery, gql } from '@apollo/client'
 import {
   Box,
   BoxProps,
@@ -16,10 +17,22 @@ interface Props extends BoxProps {
   onMenuClick: () => void
 }
 
+const USER_QUERY = gql`
+  query {
+    user {
+      id
+    }
+  }
+`
+
 export const Header: ChakraComponent<'div', Props> = ({
   onMenuClick,
   ...props
 }: Props) => {
+  const { data } = useQuery(USER_QUERY)
+
+  console.log(data)
+
   return (
     <LayoutContainer as="header" position="fixed" top="0" zIndex={1} {...props}>
       <HStack h="20" justify="space-between" ml="-3">

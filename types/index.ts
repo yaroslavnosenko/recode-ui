@@ -31,3 +31,5 @@ export interface Supplier {
   wifi?: string
   menu: Menu | null
 }
+
+export * from './generated/graphql'

@@ -7,7 +7,7 @@ export const theme = extendTheme({
   },
   styles: {
     global: {
-      html: { '-webkit-font-smoothing': 'auto' },
+      html: { WebkitFontSmoothing: 'auto' },
       body: { bg: 'gray.50', color: 'gray.900' },
     },
   },

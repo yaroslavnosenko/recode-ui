@@ -48,13 +48,13 @@ const LoginForm = () => {
               className="active:opacity-50 rounded-md mt-4 first:mt-0 p-px box-border h-14 from-brand via-brand to-yellow-500 bg-gradient-to-l odd:bg-gradient-to-r"
               key={link.text}
             >
-              <Link
+              <button
                 className="rounded-md h-full flex px-6 items-center text-md w-full bg-light-100 dark:text-white dark:bg-dark-900 hover:bg-transparent hover:text-light-100"
-                href="/"
+                onClick={() => signIn('github')}
               >
                 {link.icon}
                 <p className="ml-4">{link.text}</p>
-              </Link>
+              </button>
             </div>
           ))}
         </div>
@@ -88,7 +88,6 @@ export default function Auth() {
             >
               Forgot Password?
             </Link>
-            <button onClick={() => signIn()}>Sign in</button>
           </p>
         </Container>
       </div>

@@ -45,7 +45,15 @@ const MenuItem = ({
 
 export const Menu = () => {
   return (
-    <Stack p="6" spacing="1" overflow="scroll" as="menu" flex="1" m="0">
+    <Stack
+      p="6"
+      spacing="1"
+      as="menu"
+      flex="1"
+      m="0"
+      overflowY="scroll"
+      className="scrollbar-hide"
+    >
       <MenuItem icon={FiBell} href={APP_ROUTES.ORDERS}>
         Orders
       </MenuItem>

@@ -15,12 +15,15 @@ import { NavLink } from 'react-router-dom'
 import { Menu } from './menu'
 
 import { APP_ROUTES } from 'configs'
+import { Users } from 'types'
 
 interface Props extends StackProps {
+  user: Users | null
   onClose: () => void
 }
 
 export const Navigation: ChakraComponent<'div', Props> = ({
+  user,
   onClose,
   ...props
 }: Props) => {
@@ -39,7 +42,7 @@ export const Navigation: ChakraComponent<'div', Props> = ({
       zIndex={2}
       {...props}
     >
-      <HStack p="6" mr="-3" justify="space-between">
+      <HStack p="6" justify="space-between">
         <NavLink to={APP_ROUTES.APP}>
           <Link
             className="font-medium text-2xl"
@@ -50,10 +53,11 @@ export const Navigation: ChakraComponent<'div', Props> = ({
           </Link>
         </NavLink>
         <IconButton
-          display={{ base: 'block', lg: 'none' }}
+          display={{ base: 'flex', lg: 'none' }}
           onClick={onClose}
           icon={<FiX />}
           bg="none"
+          mr="-3"
           aria-label="close"
         />
       </HStack>
@@ -61,8 +65,8 @@ export const Navigation: ChakraComponent<'div', Props> = ({
       <NavLink to={APP_ROUTES.SETTINGS}>
         <Link _hover={{ textDecoration: 'none' }}>
           <Box p="6">
-            <Heading as="p" size="xs" noOfLines={1}>
-              ENCORE LOUNGE BAR
+            <Heading as="p" size="xs" noOfLines={1} textTransform="uppercase">
+              {user?.merchant?.name}
             </Heading>
           </Box>
         </Link>

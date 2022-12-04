@@ -1,5 +1,9 @@
-import { Layout } from 'components/app'
+import { EditMerchantForm, Layout } from 'components/app'
 
 export const Start = () => {
-  return <Layout>Start</Layout>
+  return (
+    <Layout>
+      <EditMerchantForm />
+    </Layout>
+  )
 }

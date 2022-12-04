@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server'
 import { useEffect } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
-import { Categories, Me, Settings, Start } from 'components/app'
+import { Categories, Me, Placements, Settings, Start } from 'components/app'
 import { APP_ROUTES, ROUTES } from 'configs'
 import { TokenContext } from 'hooks'
 import { createApolloClient } from 'libs'
@@ -39,7 +39,7 @@ const App: NextPage<AppProps> = ({ token }) => {
               <Route path={APP_ROUTES.CATEGORIES} element={<Categories />} />
               <Route path={APP_ROUTES.PRODUCTS} element={<Settings />} />
               <Route path={APP_ROUTES.EMPLOYEES} element={<Settings />} />
-              <Route path={APP_ROUTES.PLACEMENTS} element={<Settings />} />
+              <Route path={APP_ROUTES.PLACEMENTS} element={<Placements />} />
               <Route path={APP_ROUTES.SETTINGS} element={<Settings />} />
               <Route path={APP_ROUTES.ME} element={<Me />} />
             </Routes>

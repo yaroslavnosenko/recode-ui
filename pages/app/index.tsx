@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 import { getToken } from 'next-auth/jwt'
 import { NextRequest } from 'next/server'
 import { useEffect } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 import { Categories, Me, Settings, Start } from 'components/app'
 import { APP_ROUTES, ROUTES } from 'configs'
@@ -28,8 +28,12 @@ const App: NextPage<AppProps> = ({ token }) => {
     <TokenContext.Provider value={token}>
       <ApolloProvider client={client}>
         <ChakraProvider theme={theme}>
-          <BrowserRouter basename={APP_ROUTES.APP}>
+          <BrowserRouter basename={ROUTES.APP}>
             <Routes>
+              <Route
+                path={APP_ROUTES.APP}
+                element={<Navigate to={APP_ROUTES.ORDERS} replace />}
+              />
               <Route path={APP_ROUTES.START} element={<Start />} />
               <Route path={APP_ROUTES.ORDERS} element={<Settings />} />
               <Route path={APP_ROUTES.CATEGORIES} element={<Categories />} />

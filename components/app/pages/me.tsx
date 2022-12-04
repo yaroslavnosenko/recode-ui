@@ -13,7 +13,7 @@ import { EditProfileForm, Layout, LayoutContainer } from 'components/app'
 export const Me = () => {
   return (
     <Layout>
-      <LayoutContainer py="12">
+      <LayoutContainer py="8">
         <Heading>Profile settings</Heading>
         <Text opacity="0.5" mb="8">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. In

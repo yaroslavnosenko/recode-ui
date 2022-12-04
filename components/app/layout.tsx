@@ -60,7 +60,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
         onMenuClick={setNav.toggle}
         name={data?.name || ''}
       />
-      <Box as="main" pt="16" pl={[0, 0, 0, 56]} minH="100vh">
+      <Box as="main" pt="20" pl={[0, 0, 0, 56]} minH="100vh">
         {children}
       </Box>
     </>

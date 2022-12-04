@@ -9,7 +9,7 @@ export const ROUTES = {
 }
 
 export const APP_ROUTES = {
-  APP: ROUTES.APP,
+  APP: '/',
   START: '/start',
   ORDERS: '/orders',
   CATEGORIES: '/categories',

@@ -4,6 +4,7 @@ export const USER_QUERY = gql`
   query ($id: uuid!) {
     users_by_pk(id: $id) {
       name
+      email
       id
       merchant {
         id

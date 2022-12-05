@@ -27,7 +27,7 @@ export const Navigation: ChakraComponent<'div', Props> = ({
   onClose,
   ...props
 }: Props) => {
-  const bg = useColorModeValue('gray.50', '#1b1f25')
+  const bg = useColorModeValue('gray.50', 'dark.800')
   return (
     <Stack
       as="nav"

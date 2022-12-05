@@ -19,7 +19,7 @@ const LINKS = [
 ]
 
 export const Header = () => {
-  const bg = useColorModeValue('whiteAlpha.700', '#131417bb')
+  const bg = useColorModeValue('whiteAlpha.700', 'dark.900')
   return (
     <Box
       as="header"

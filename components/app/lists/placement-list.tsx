@@ -5,14 +5,21 @@ import {
   Box,
   Heading,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react'
-import QRCode from 'react-qr-code'
+import { QRCode } from 'react-qrcode'
 
 const Item = () => {
+  const bg = useColorModeValue('gray.50', 'dark.800')
+  const color = useColorModeValue('dark.900', '#ffffff')
   return (
-    <HStack borderWidth="1px" p="4" borderRadius="md" spacing={6}>
-      <AspectRatio w="24" ratio={1}>
-        <QRCode size={96} value="asdkjlasjdlasjdlsj" />
+    <HStack borderWidth={1} bg={bg} p="4" borderRadius="md" spacing={6}>
+      <AspectRatio w="20" ratio={1}>
+        <QRCode
+          margin={0}
+          value="adfksdflsdjfsdlkfjlksdjflksdjflksdjflksdjfiejflsdkjflsiefjs"
+          color={{ dark: color, light: '#ffffff00' }}
+        />
       </AspectRatio>
       <Box>
         <Heading noOfLines={1} size="md">

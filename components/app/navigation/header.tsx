@@ -45,7 +45,7 @@ export const Header: ChakraComponent<'div', Props> = ({
             />
           </Link>
           <Link to={APP_ROUTES.ME}>
-            <Avatar bg="gray.900" size="sm" name={name} />
+            <Avatar bg="teal.500" size="sm" name={name} />
           </Link>
         </HStack>
       </HStack>

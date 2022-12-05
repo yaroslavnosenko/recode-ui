@@ -15,7 +15,7 @@ import { useToken } from 'hooks'
 import { USER_QUERY } from 'queries'
 import { Query_Root, Query_RootUsers_By_PkArgs } from 'types'
 
-const HeaderDesktopWidth = 'calc(100% - var(--chakra-space-56))'
+const HeaderDesktopWidth = 'calc(100% - var(--recode-space-56))'
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const [nav, setNav] = useBoolean()

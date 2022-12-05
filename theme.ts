@@ -31,5 +31,10 @@ export const theme = extendTheme({
         },
       }),
     },
+    Container: {
+      baseStyle: {
+        px: 6,
+      },
+    },
   },
 })

@@ -15,11 +15,11 @@ export const theme = extendTheme({
     global: (props: any) => ({
       html: {
         WebkitFontSmoothing: 'auto',
-        bg: mode('white', '#131417')(props),
+        bg: mode('white', '#121418')(props),
       },
       body: {
         color: mode('gray.900', 'gray.50')(props),
-        bg: mode('white', '#131417')(props),
+        bg: mode('white', '#121418')(props),
       },
     }),
   },
@@ -27,7 +27,7 @@ export const theme = extendTheme({
     Drawer: {
       baseStyle: (props: any) => ({
         dialog: {
-          bg: mode('white', '#131417')(props),
+          bg: mode('white', '#121418')(props),
         },
       }),
     },

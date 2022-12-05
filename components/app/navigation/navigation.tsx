@@ -3,11 +3,11 @@ import {
   Heading,
   Stack,
   Link,
-  StackDivider,
   ChakraComponent,
   StackProps,
   HStack,
   IconButton,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { FiX } from 'react-icons/fi'
 import { NavLink } from 'react-router-dom'
@@ -27,10 +27,10 @@ export const Navigation: ChakraComponent<'div', Props> = ({
   onClose,
   ...props
 }: Props) => {
+  const bg = useColorModeValue('gray.50', '#1b1f25')
   return (
     <Stack
       as="nav"
-      borderRightWidth="1px"
       position="fixed"
       top="0"
       left="0"
@@ -38,8 +38,8 @@ export const Navigation: ChakraComponent<'div', Props> = ({
       maxH="100%"
       w="56"
       spacing="0"
-      divider={<StackDivider />}
       zIndex={2}
+      bg={bg}
       {...props}
     >
       <HStack p="6" justify="space-between">

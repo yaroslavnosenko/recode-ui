@@ -29,7 +29,6 @@ export const Header: ChakraComponent<'div', Props> = ({
           <Box display={{ lg: 'none' }}>
             <IconButton
               aria-label="notifications"
-              color="gray.900"
               icon={<FiMenu strokeWidth={3} />}
               bg="transparent"
               onClick={onMenuClick}
@@ -41,7 +40,6 @@ export const Header: ChakraComponent<'div', Props> = ({
           <Link to={APP_ROUTES.ORDERS}>
             <IconButton
               aria-label="notifications"
-              color="gray.500"
               icon={<FiBell />}
               bg="transparent"
             />

@@ -1,4 +1,12 @@
-import { Box, Container, Grid, Heading, HStack, Link } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Grid,
+  Heading,
+  HStack,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import NextLink from 'next/link'
 
 import { ROUTES } from 'configs'
@@ -11,6 +19,7 @@ const LINKS = [
 ]
 
 export const Header = () => {
+  const bg = useColorModeValue('whiteAlpha.700', '#131417bb')
   return (
     <Box
       as="header"
@@ -19,6 +28,7 @@ export const Header = () => {
       zIndex={55}
       backdropFilter="auto"
       backdropBlur="lg"
+      bg={bg}
     >
       <Container maxW="container.xl">
         <Grid

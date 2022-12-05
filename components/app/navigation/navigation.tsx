@@ -45,7 +45,7 @@ export const Navigation: ChakraComponent<'div', Props> = ({
       <HStack p="6" justify="space-between">
         <NavLink to={APP_ROUTES.APP}>
           <Link display="block" _hover={{ textDecoration: 'none' }}>
-            <Heading size="lg" fontSize="24" fontWeight="500">
+            <Heading size="lg" fontSize="24" fontWeight="500" lineHeight={8}>
               Recode
             </Heading>
           </Link>

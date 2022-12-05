@@ -5,7 +5,7 @@ import { EmployeeTable, Layout, LayoutContainer } from 'components/app'
 export const Products = () => {
   return (
     <Layout>
-      <LayoutContainer py="8">
+      <LayoutContainer py="6">
         <Heading>Products</Heading>
         <Text opacity="0.5" mb="8">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. In

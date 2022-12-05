@@ -5,7 +5,7 @@ import { EditMerchantForm, Layout, LayoutContainer } from 'components/app'
 export const Settings = () => {
   return (
     <Layout>
-      <LayoutContainer py="8">
+      <LayoutContainer py="6">
         <Heading>Settings</Heading>
         <Text opacity="0.5" mb="8">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. In

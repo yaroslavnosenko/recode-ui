@@ -1,6 +1,13 @@
-import Link from 'next/link'
+import {
+  Box,
+  Container,
+  HStack,
+  Link,
+  SimpleGrid,
+  Text,
+} from '@chakra-ui/react'
+import NextLink from 'next/link'
 
-import { Container } from 'components/web'
 import { ROUTES } from 'configs'
 
 const LINKS = [
@@ -11,23 +18,26 @@ const LINKS = [
 
 export const Footer = () => {
   return (
-    <footer>
-      <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 items-baseline py-6 gap-3">
-          <div className="flex gap-6">
+    <Box as="footer">
+      <Container maxW="container.xl">
+        <SimpleGrid columns={[1, 1, 2]} gap={4} py={6}>
+          <HStack gap={4}>
             {LINKS.map((link) => (
-              <Link
-                className="opacity-50 hover:opacity-100"
+              <NextLink
                 key={link.text}
                 href={link.href}
+                legacyBehavior
+                passHref
               >
-                {link.text}
-              </Link>
+                <Link opacity={0.5}>{link.text}</Link>
+              </NextLink>
             ))}
-          </div>
-          <p className="opacity-50 md:text-end">Copyright@Recode 2022</p>
-        </div>
+          </HStack>
+          <Text opacity={0.5} textAlign={['start', 'start', 'end']}>
+            Copyright@Recode 2022
+          </Text>
+        </SimpleGrid>
       </Container>
-    </footer>
+    </Box>
   )
 }

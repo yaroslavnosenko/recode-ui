@@ -44,12 +44,10 @@ export const Navigation: ChakraComponent<'div', Props> = ({
     >
       <HStack p="6" justify="space-between">
         <NavLink to={APP_ROUTES.APP}>
-          <Link
-            className="font-medium text-2xl"
-            display="block"
-            _hover={{ textDecoration: 'none' }}
-          >
-            Recode
+          <Link display="block" _hover={{ textDecoration: 'none' }}>
+            <Heading size="lg" fontSize="24" fontWeight="500">
+              Recode
+            </Heading>
           </Link>
         </NavLink>
         <IconButton

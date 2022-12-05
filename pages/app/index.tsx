@@ -1,5 +1,5 @@
 import { ApolloProvider } from '@apollo/client'
-import { ChakraProvider, useBoolean } from '@chakra-ui/react'
+import { useBoolean } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { getToken } from 'next-auth/jwt'
 import { NextRequest } from 'next/server'
@@ -19,7 +19,6 @@ import {
 import { APP_ROUTES, ROUTES } from 'configs'
 import { TokenContext } from 'hooks'
 import { createApolloClient } from 'libs'
-import { theme } from 'theme'
 
 interface AppProps {
   token?: string
@@ -36,24 +35,22 @@ const App: NextPage<AppProps> = ({ token }) => {
   return (
     <TokenContext.Provider value={token}>
       <ApolloProvider client={client}>
-        <ChakraProvider theme={theme}>
-          <BrowserRouter basename={ROUTES.APP}>
-            <Routes>
-              <Route
-                path={APP_ROUTES.APP}
-                element={<Navigate to={APP_ROUTES.ORDERS} replace />}
-              />
-              <Route path={APP_ROUTES.START} element={<Start />} />
-              <Route path={APP_ROUTES.ORDERS} element={<Orders />} />
-              <Route path={APP_ROUTES.CATEGORIES} element={<Categories />} />
-              <Route path={APP_ROUTES.PRODUCTS} element={<Products />} />
-              <Route path={APP_ROUTES.EMPLOYEES} element={<Employees />} />
-              <Route path={APP_ROUTES.PLACEMENTS} element={<Placements />} />
-              <Route path={APP_ROUTES.SETTINGS} element={<Settings />} />
-              <Route path={APP_ROUTES.ME} element={<Me />} />
-            </Routes>
-          </BrowserRouter>
-        </ChakraProvider>
+        <BrowserRouter basename={ROUTES.APP}>
+          <Routes>
+            <Route
+              path={APP_ROUTES.APP}
+              element={<Navigate to={APP_ROUTES.ORDERS} replace />}
+            />
+            <Route path={APP_ROUTES.START} element={<Start />} />
+            <Route path={APP_ROUTES.ORDERS} element={<Orders />} />
+            <Route path={APP_ROUTES.CATEGORIES} element={<Categories />} />
+            <Route path={APP_ROUTES.PRODUCTS} element={<Products />} />
+            <Route path={APP_ROUTES.EMPLOYEES} element={<Employees />} />
+            <Route path={APP_ROUTES.PLACEMENTS} element={<Placements />} />
+            <Route path={APP_ROUTES.SETTINGS} element={<Settings />} />
+            <Route path={APP_ROUTES.ME} element={<Me />} />
+          </Routes>
+        </BrowserRouter>
       </ApolloProvider>
     </TokenContext.Provider>
   )

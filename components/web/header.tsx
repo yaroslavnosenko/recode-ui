@@ -1,6 +1,5 @@
-import Link from 'next/link'
-
-import { Container } from './container'
+import { Box, Container, Grid, Heading, HStack, Link } from '@chakra-ui/react'
+import NextLink from 'next/link'
 
 import { ROUTES } from 'configs'
 
@@ -13,38 +12,63 @@ const LINKS = [
 
 export const Header = () => {
   return (
-    <header className="bg-light-100/70 dark:bg-dark-900/70 fixed w-screen z-50 backdrop-blur-lg">
-      <Container>
-        <div className="grid grid-cols-2 md:grid-cols-[1fr_minmax(0,_1fr)_1fr] items-baseline py-6">
-          <div>
-            <Link className="font-medium text-2xl" href={ROUTES.HOME}>
+    <Box
+      as="header"
+      pos="fixed"
+      w="full"
+      zIndex={55}
+      backdropFilter="auto"
+      backdropBlur="lg"
+    >
+      <Container maxW="container.xl">
+        <Grid
+          h="20"
+          alignItems="center"
+          gridTemplateColumns={{ base: '1fr 1fr', md: '1fr auto 1fr' }}
+        >
+          <NextLink className="font-medium text-2xl" href={ROUTES.HOME}>
+            <Heading size="lg" fontSize="24" fontWeight="500">
               Recode
-            </Link>
-          </div>
-          <div className="hidden text-center md:flex gap-6 justify-center">
+            </Heading>
+          </NextLink>
+          <HStack display={{ base: 'none', md: 'flex' }} gap={6}>
             {LINKS.map((link) => (
-              <Link
-                className="opacity-70 hover:opacity-100"
+              <NextLink
                 key={link.text}
                 href={link.href}
+                legacyBehavior
+                passHref
               >
-                {link.text}
-              </Link>
+                <Link
+                  opacity={0.8}
+                  _hover={{ textDecor: 'none', opacity: 0.5 }}
+                >
+                  {link.text}
+                </Link>
+              </NextLink>
             ))}
-          </div>
-          <div className="text-end">
-            <Link className="hover:opacity-50" href={ROUTES.AUTH}>
-              Sign in
-            </Link>
-            <Link
+          </HStack>
+          <HStack justifyContent="flex-end" spacing={4}>
+            <NextLink href={ROUTES.AUTH} legacyBehavior passHref>
+              <Link _hover={{ textDecor: 'none', opacity: 0.5 }}>Sign in</Link>
+            </NextLink>
+            <NextLink
               className="ml-6 text-brand underline hover:no-underline underline-offset-4"
               href={ROUTES.QR('demo')}
+              legacyBehavior
+              passHref
             >
-              Demo
-            </Link>
-          </div>
-        </div>
+              <Link
+                textDecor="underline"
+                color="teal.500"
+                _hover={{ textDecor: 'none' }}
+              >
+                Demo
+              </Link>
+            </NextLink>
+          </HStack>
+        </Grid>
       </Container>
-    </header>
+    </Box>
   )
 }

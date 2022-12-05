@@ -1,22 +1,18 @@
-import { PropsWithChildren } from 'react'
+import { AspectRatio, Box, BoxProps } from '@chakra-ui/react'
 
-interface Props {
-  colorClasses?: string
-}
-
-export const Phone = ({ children, colorClasses }: PropsWithChildren<Props>) => {
-  const color: string = colorClasses
-    ? colorClasses
-    : 'bg-gradient-to-r from-brand via-brand to-yellow-500'
+export const Phone = ({ children, ...props }: BoxProps) => {
   return (
-    <div
-      className={
-        'flex justify-center items-center aspect-[288/568] w-full bg-red-100 mx-auto rounded-3xl p-1 ' +
-        color
-      }
-      style={{ maxWidth: 288 }}
+    <Box
+      maxW={288}
+      mx="auto"
+      bgGradient="linear(to-r, teal.500, teal.500, yellow.500)"
+      rounded="2xl"
+      p="4px"
+      {...props}
     >
-      {children}
-    </div>
+      <AspectRatio rounded="2xl" overflow="hidden" ratio={288 / 568}>
+        {children}
+      </AspectRatio>
+    </Box>
   )
 }

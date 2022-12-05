@@ -1,3 +1,5 @@
+import { Box, Heading, Text } from '@chakra-ui/react'
+
 interface Props {
   title: JSX.Element | string
   body: JSX.Element | string
@@ -6,10 +8,14 @@ interface Props {
 
 export const Feature = ({ title, body, icon }: Props) => {
   return (
-    <div className="mt-12 first:mt-0">
-      <div className="inline-block">{icon}</div>
-      <h2 className="text-3xl font-medium leading-tight mt-4">{title}</h2>
-      <p className="opacity-50 mt-4">{body}</p>
-    </div>
+    <Box mt="12" _first={{ mt: 0 }}>
+      <Box display="inline-block">{icon}</Box>
+      <Heading as="h2" size="lg" mt="4" fontWeight="600">
+        {title}
+      </Heading>
+      <Text mt="4" opacity={0.5}>
+        {body}
+      </Text>
+    </Box>
   )
 }

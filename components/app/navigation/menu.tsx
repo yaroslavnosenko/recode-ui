@@ -52,7 +52,11 @@ export const Menu = () => {
       flex="1"
       m="0"
       overflowY="scroll"
-      className="scrollbar-hide"
+      css={{
+        '::-webkit-scrollbar': {
+          display: 'none',
+        },
+      }}
     >
       <MenuItem icon={FiBell} href={APP_ROUTES.ORDERS}>
         Orders

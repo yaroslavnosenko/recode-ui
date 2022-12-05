@@ -1,3 +1,4 @@
+import { Container } from '@chakra-ui/react'
 import { getToken } from 'next-auth/jwt'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
@@ -5,7 +6,7 @@ import { NextRequest } from 'next/server'
 import { FiUserPlus, FiArrowRight } from 'react-icons/fi'
 import { SiApple, SiGoogle } from 'react-icons/si'
 
-import { Container, Layout } from 'components/web'
+import { Layout } from 'components/web'
 import { ROUTES } from 'configs'
 
 const LINKS = [

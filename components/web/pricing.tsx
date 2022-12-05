@@ -48,7 +48,7 @@ export const Pricing = () => {
         <Feature>Both a mobile and a desktop version of the menu</Feature>
       </div>
       <div>
-        <Phone colorClasses="dark:bg-dark-700 bg-light-300">
+        <Phone>
           <div className="px-6 text-center">
             <p className="text-md mb-4">Scan QR Code bellow to see demo</p>
             <div className="dark:bg-dark-700 bg-light-300">

@@ -1,13 +1,16 @@
+import { Box, Flex } from '@chakra-ui/react'
 import { PropsWithChildren } from 'react'
 
 import { Footer, Header } from 'components/web'
 
 export const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <Flex direction="column" minH="100vh">
       <Header />
-      <main className="flex-1 pt-20">{children}</main>
+      <Box as="main" flex={1} pt="20">
+        {children}
+      </Box>
       <Footer />
-    </div>
+    </Flex>
   )
 }

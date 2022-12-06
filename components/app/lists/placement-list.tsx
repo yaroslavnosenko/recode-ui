@@ -10,7 +10,7 @@ import {
 import { QRCode } from 'react-qrcode'
 
 const Item = () => {
-  const bg = useColorModeValue('gray.50', 'dark.800')
+  const bg = useColorModeValue('gray.100', 'dark.800')
   const color = useColorModeValue('dark.900', '#ffffff')
   return (
     <HStack borderWidth={1} bg={bg} p="4" borderRadius="md" spacing={6}>

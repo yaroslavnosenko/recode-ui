@@ -44,7 +44,7 @@ export const EditProfileForm = () => {
   return (
     <Box as="form" onSubmit={handleSubmit(onSave)} gap="8">
       <FormControl isRequired>
-        <FormLabel>Full Name</FormLabel>
+        <FormLabel mb="0">Full Name</FormLabel>
         <Input
           variant="flushed"
           placeholder="Full Name"
@@ -52,8 +52,8 @@ export const EditProfileForm = () => {
         />
       </FormControl>
 
-      <FormControl mt={4}>
-        <FormLabel>Email</FormLabel>
+      <FormControl mt={6}>
+        <FormLabel mb="0">Email</FormLabel>
         <Input variant="flushed" isDisabled value={user?.email || ''} />
       </FormControl>
 

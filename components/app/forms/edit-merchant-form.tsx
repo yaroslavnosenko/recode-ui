@@ -1,4 +1,4 @@
-import { gql, useMutation, useApolloClient } from '@apollo/client'
+import { gql, useMutation, useApolloClient, useQuery } from '@apollo/client'
 import {
   Box,
   Button,
@@ -8,6 +8,7 @@ import {
   Select,
   SimpleGrid,
 } from '@chakra-ui/react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { useToken } from 'hooks'
@@ -15,6 +16,7 @@ import { USER_QUERY } from 'queries'
 import {
   Merchants_Set_Input,
   Mutation_RootInsert_Merchants_OneArgs,
+  Query_Root,
 } from 'types'
 
 type FormData = Merchants_Set_Input
@@ -39,7 +41,19 @@ export const EditMerchantForm = () => {
   const client = useApolloClient()
 
   const { id } = useToken()
+  const { data, loading } = useQuery<Query_Root>(USER_QUERY, {
+    variables: { id },
+  })
   setValue('userId', id)
+  useEffect(() => {
+    setValue('name', data?.users_by_pk?.merchant?.name)
+    setValue('slug', data?.users_by_pk?.merchant?.slug)
+    setValue('lang', data?.users_by_pk?.merchant?.lang)
+    setValue('currency', data?.users_by_pk?.merchant?.currency)
+    setValue('address', data?.users_by_pk?.merchant?.address)
+    setValue('phone', data?.users_by_pk?.merchant?.phone)
+    setValue('wifi', data?.users_by_pk?.merchant?.wifi)
+  }, [data, setValue])
 
   const [save] =
     useMutation<Mutation_RootInsert_Merchants_OneArgs>(MERCHANT_MUTATION)
@@ -53,7 +67,7 @@ export const EditMerchantForm = () => {
     <Box as="form" onSubmit={handleSubmit(onSave)}>
       <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 6, md: 8 }}>
         <Box>
-          <FormControl isRequired>
+          <FormControl isRequired isDisabled={loading}>
             <FormLabel mb="0">Display name</FormLabel>
             <Input
               variant="flushed"

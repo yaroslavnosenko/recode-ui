@@ -1,14 +1,14 @@
-import { Heading, Text } from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-import { Layout, LayoutContainer } from 'components/app'
+import { Layout, LayoutContainer, ProductTable } from 'components/app'
 import { APP_ROUTES } from 'configs'
 
 export const CategoryProducts = () => {
   return (
     <Layout>
-      <LayoutContainer py="6">
-        <Heading noOfLines={1}>
+      <LayoutContainer pt="6">
+        <Heading>
           <Text as="span" fontWeight="normal">
             <Link to={APP_ROUTES.PRODUCTS}>Products</Link>
             {' / '}
@@ -20,6 +20,13 @@ export const CategoryProducts = () => {
           repudiandae hic quas similique rem dolorem.
         </Text>
       </LayoutContainer>
+      <Box
+        overflowX="scroll"
+        css={{ '::-webkit-scrollbar': { display: 'none' } }}
+        pb="6"
+      >
+        <ProductTable />
+      </Box>
     </Layout>
   )
 }

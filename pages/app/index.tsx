@@ -8,6 +8,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 import {
   Categories,
+  CategoryProducts,
   Employees,
   Me,
   Orders,
@@ -49,6 +50,10 @@ const App: NextPage<AppProps> = ({ token }) => {
             <Route path={APP_ROUTES.PLACEMENTS} element={<Placements />} />
             <Route path={APP_ROUTES.SETTINGS} element={<Settings />} />
             <Route path={APP_ROUTES.ME} element={<Me />} />
+            <Route
+              path={APP_ROUTES.CATEGORY_PRODUCTS}
+              element={<CategoryProducts />}
+            />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>

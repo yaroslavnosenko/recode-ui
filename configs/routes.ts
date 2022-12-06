@@ -14,6 +14,7 @@ export const APP_ROUTES = {
   ORDERS: '/orders',
   CATEGORIES: '/categories',
   PRODUCTS: '/products',
+  CATEGORY_PRODUCTS: '/products/:category',
   EMPLOYEES: '/employees',
   PLACEMENTS: '/placements',
   SETTINGS: '/settings',

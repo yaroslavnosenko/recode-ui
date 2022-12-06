@@ -40,6 +40,7 @@ export const Navigation: ChakraComponent<'div', Props> = ({
       spacing="0"
       zIndex={2}
       bg={bg}
+      borderRightWidth="1px"
       {...props}
     >
       <HStack p="6" justify="space-between">

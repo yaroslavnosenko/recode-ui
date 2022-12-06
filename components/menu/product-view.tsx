@@ -10,11 +10,11 @@ interface Props {
 }
 
 export const ProductView = ({ product }: Props) => {
-  const { id, name, photo, description, price } = product
-  const { order, addProduct, removeProduct } = useContext(MenuContext)
+  const { id, name, description, price } = product
+  const { addProduct, removeProduct } = useContext(MenuContext)
 
-  const row = order.find((row) => row.product.id === id)
-  const quantity = row?.quantity || 0
+  // const row = order.find((row) => row.product.id === id)
+  const quantity = 0
 
   return (
     <div className="py-5 relative">
@@ -34,12 +34,12 @@ export const ProductView = ({ product }: Props) => {
           {description && <p className="opacity-50">{description}</p>}
           <p className="mt-1 text-brand">${price}</p>
         </div>
-        {photo && (
+        {/* {photo && (
           <div
             className="bg-cover bg-light-200 dark:bg-dark-800 bg-center rounded-lg h-20 w-20"
             style={{ backgroundImage: 'url(' + photo + ')' }}
           />
-        )}
+        )} */}
       </div>
       {quantity > 0 && (
         <>

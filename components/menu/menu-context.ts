@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { OrderRow, Product } from 'types'
+import { Order_Row, Product } from 'types'
 
 interface MenuContextProps {
-  order: OrderRow[]
+  order: Order_Row[]
   addProduct: (product: Product) => void
   removeProduct: (productId: string) => void
 }

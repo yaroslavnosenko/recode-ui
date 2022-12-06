@@ -14,16 +14,16 @@ import { useForm } from 'react-hook-form'
 import { useToken } from 'hooks'
 import { USER_QUERY } from 'queries'
 import {
-  Merchants_Set_Input,
-  Mutation_RootInsert_Merchants_OneArgs,
+  Merchant_Set_Input,
+  Mutation_RootInsert_Merchant_OneArgs,
   Query_Root,
 } from 'types'
 
-type FormData = Merchants_Set_Input
+type FormData = Merchant_Set_Input
 
 const MERCHANT_MUTATION = gql`
   mutation ($input: merchants_insert_input!) {
-    insert_merchants_one(
+    insert_merchant_one(
       object: $input
       on_conflict: {
         constraint: merchants_userId_key
@@ -56,7 +56,7 @@ export const EditMerchantForm = () => {
   }, [data, setValue])
 
   const [save] =
-    useMutation<Mutation_RootInsert_Merchants_OneArgs>(MERCHANT_MUTATION)
+    useMutation<Mutation_RootInsert_Merchant_OneArgs>(MERCHANT_MUTATION)
 
   const onSave = (input: FormData) =>
     save({ variables: { input } }).finally(() =>

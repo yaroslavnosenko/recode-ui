@@ -37,6 +37,11 @@ export const theme = extendTheme({
         },
       }),
     },
+    Button: {
+      baseStyle: {
+        fontWeight: 500,
+      },
+    },
     Container: {
       baseStyle: {
         px: 6,

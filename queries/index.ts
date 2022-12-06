@@ -19,3 +19,17 @@ export const USER_QUERY = gql`
     }
   }
 `
+
+export const EMPLOYEES_QUERY = gql`
+  query ($id: uuid!) {
+    users_by_pk(id: $id) {
+      merchant {
+        employees {
+          id
+          name
+          pin
+        }
+      }
+    }
+  }
+`

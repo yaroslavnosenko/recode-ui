@@ -19,28 +19,7 @@ import { FiEyeOff, FiMoreVertical, FiMove } from 'react-icons/fi'
 import { Product } from 'types'
 import { reorder } from 'utils'
 
-const data: Product[] = [
-  {
-    id: 'prod1',
-    name: 'Vanilla ice cream',
-    price: 2.5,
-    photo: 'http://www.encoretheclub.sk/img/lo5.jpg',
-    description: 'Vanilla ice cream with chocolate filling',
-  },
-  {
-    id: 'prod2',
-    name: 'Berry ice cream',
-    price: 5.99,
-    description: 'Natural ice cream made from berries',
-  },
-  {
-    id: 'prod3',
-    name: 'Brownie with raspberries',
-    price: 16.7,
-    photo: 'http://www.encoretheclub.sk/img/lo4.jpg',
-  },
-  { id: 'prod4', name: 'Cheesecake', price: 19.9 },
-]
+const data: Product[] = []
 
 interface RowProps {
   product: Product
@@ -79,7 +58,7 @@ const Row = ({ product, index }: RowProps) => {
               bgPos="center"
               bgColor="teal.500"
               borderRightRadius={0}
-              bgImage={'url(' + product.photo + ')'}
+              bgImage={'url(' + product.id + ')'}
             />
             <Box>
               <Heading noOfLines={1} size="sm">

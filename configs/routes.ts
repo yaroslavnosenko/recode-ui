@@ -16,6 +16,7 @@ export const APP_ROUTES = {
   PRODUCTS: '/products',
   CATEGORY_PRODUCTS: '/products/:category',
   EMPLOYEES: '/employees',
+  EMPLOYEE: '/employees/:id',
   PLACEMENTS: '/placements',
   SETTINGS: '/settings',
   ME: '/me',

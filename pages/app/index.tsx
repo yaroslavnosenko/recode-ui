@@ -9,6 +9,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import {
   Categories,
   CategoryProducts,
+  Employee,
   Employees,
   Me,
   Orders,
@@ -47,6 +48,7 @@ const App: NextPage<AppProps> = ({ token }) => {
             <Route path={APP_ROUTES.CATEGORIES} element={<Categories />} />
             <Route path={APP_ROUTES.PRODUCTS} element={<Products />} />
             <Route path={APP_ROUTES.EMPLOYEES} element={<Employees />} />
+            <Route path={APP_ROUTES.EMPLOYEE} element={<Employee />} />
             <Route path={APP_ROUTES.PLACEMENTS} element={<Placements />} />
             <Route path={APP_ROUTES.SETTINGS} element={<Settings />} />
             <Route path={APP_ROUTES.ME} element={<Me />} />

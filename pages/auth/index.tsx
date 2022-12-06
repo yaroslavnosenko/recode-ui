@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Heading,
   Input,
   Stack,
@@ -76,7 +77,7 @@ const LoginForm = () => {
       alignItems="center"
       className="flex flex-col md:flex-row md:justify-center md:items-center"
     >
-      <Stack flex={1} maxW="md" spacing={4}>
+      <Stack flex={1} maxW="md" spacing={4} w="full">
         <Input
           px="6"
           size="lg"
@@ -116,12 +117,14 @@ const LoginForm = () => {
         </Button>
       </Stack>
 
-      <Box p="20" fontSize="4xl">
-        /
+      <Box alignSelf="center">
+        <Text display={{ base: 'none', md: 'block' }} p="20" fontSize="4xl">
+          /
+        </Text>
+        <Divider display={{ md: 'none' }} my="12" w="48" />
       </Box>
-      <hr className="block md:hidden my-8 border-dark-700" />
 
-      <Stack flex={1} maxW="md" spacing={4}>
+      <Stack flex={1} maxW="md" spacing={4} w="full">
         {LINKS.map((link) => (
           <LoginButton key={link.text} link={link} />
         ))}
@@ -144,7 +147,7 @@ export default function Auth() {
             markup.
           </Text>
         </Box>
-        <Box py="10">
+        <Box py="12">
           <LoginForm />
         </Box>
       </Container>

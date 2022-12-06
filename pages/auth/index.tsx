@@ -1,7 +1,15 @@
-import { Container } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Container,
+  Heading,
+  Input,
+  Stack,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import { getToken } from 'next-auth/jwt'
 import { signIn } from 'next-auth/react'
-import Link from 'next/link'
 import { NextRequest } from 'next/server'
 import { FiUserPlus, FiArrowRight } from 'react-icons/fi'
 import { SiApple, SiGoogle } from 'react-icons/si'
@@ -15,83 +23,131 @@ const LINKS = [
   { text: 'Sign in with Apple Account', icon: <SiApple /> },
 ]
 
+const LoginButton = ({ link }: any) => {
+  const color = useColorModeValue('dark.900', 'gray.50')
+  const bg = useColorModeValue('white', 'dark.900')
+  return (
+    <Box
+      key={link.text}
+      p="2px"
+      rounded="lg"
+      h="14"
+      bgGradient="linear(to-r, teal.500, teal.500, yellow.500)"
+      _hover={{
+        bgGradient: 'linear(to-r, teal.500, teal.600, yellow.600)',
+      }}
+      _active={{
+        bgGradient: 'linear(to-r, teal.600, teal.700, yellow.700)',
+      }}
+      _even={{
+        bgGradient: 'linear(to-l, teal.500, teal.600, yellow.600)',
+        _active: { bgGradient: 'linear(to-l, teal.600, teal.700, yellow.700)' },
+      }}
+    >
+      <Button
+        w="full"
+        key={link.text}
+        h="full"
+        colorScheme="teal"
+        size="lg"
+        leftIcon={link.icon}
+        px="6"
+        onClick={() => signIn('github')}
+        display="flex"
+        justifyContent="flex-start"
+        fontWeight="normal"
+        color={color}
+        bg={bg}
+        _hover={{ bg: 'transparent', color: 'white' }}
+        _active={{ bg: 'transparent', color: 'white' }}
+      >
+        <Text ml="2">{link.text}</Text>
+      </Button>
+    </Box>
+  )
+}
+
 const LoginForm = () => {
   return (
-    <div className="flex flex-col md:flex-row md:justify-center md:items-center">
-      <div className="flex-1 md:max-w-sm">
-        <div>
-          <input
-            className="text-lg placeholder:text-dark-900 dark:placeholder:text-light-100 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 dark:bg-light-100/10 w-full block border-none focus:ring-2 focus:ring-brand"
-            type="text"
-            placeholder="Username"
-          />
-          <input
-            className="mt-4 text-lg placeholder:text-dark-900 dark:placeholder:text-light-100 placeholder:opacity-50 h-14 px-6 rounded-md bg-dark-900/10 dark:bg-light-100/10 w-full block border-none focus:ring-2 focus:ring-brand"
-            type="password"
-            placeholder="8 Digit Pin"
-            maxLength={8}
-            minLength={8}
-          />
-          <button className="active:opacity-50 flex font-medium items-center justify-between mt-4 h-14 px-6 rounded-md text-xl w-full text-light-100 dark:text-dark-900 bg-gradient-to-r from-brand via-brand to-yellow-400 hover:to-yellow-500">
-            <p>Login to Your Account</p>
-            <FiArrowRight strokeWidth={3} />
-          </button>
-        </div>
-      </div>
+    <Stack
+      direction={{ base: 'column', md: 'row' }}
+      spacing="0"
+      justifyContent="center"
+      alignItems="center"
+      className="flex flex-col md:flex-row md:justify-center md:items-center"
+    >
+      <Stack flex={1} maxW="md" spacing={4}>
+        <Input
+          px="6"
+          size="lg"
+          variant="filled"
+          type="text"
+          placeholder="Username"
+          h="14"
+        />
+        <Input
+          px="6"
+          size="lg"
+          variant="filled"
+          type="password"
+          placeholder="8 Digit Pin"
+          maxLength={8}
+          minLength={8}
+          h="14"
+        />
+        <Button
+          h="14"
+          colorScheme="teal"
+          size="lg"
+          rightIcon={<FiArrowRight strokeWidth={3} />}
+          display="flex"
+          px="6"
+          justifyContent="space-between"
+          fontWeight="500"
+          bgGradient="linear(to-r, teal.500, teal.500, yellow.500)"
+          _hover={{
+            bgGradient: 'linear(to-r, teal.500, teal.600, yellow.600)',
+          }}
+          _active={{
+            bgGradient: 'linear(to-r, teal.600, teal.700, yellow.700)',
+          }}
+        >
+          Login to Your Account
+        </Button>
+      </Stack>
 
-      <div className="p-20 text-4xl font-extralight hidden md:block">/</div>
+      <Box p="20" fontSize="4xl">
+        /
+      </Box>
       <hr className="block md:hidden my-8 border-dark-700" />
 
-      <div className="flex-1 md:max-w-sm">
-        <div>
-          {LINKS.map((link) => (
-            <div
-              className="active:opacity-50 rounded-md mt-4 first:mt-0 p-px box-border h-14 from-brand via-brand to-yellow-500 bg-gradient-to-l odd:bg-gradient-to-r"
-              key={link.text}
-            >
-              <button
-                className="rounded-md h-full flex px-6 items-center text-md w-full bg-light-100 dark:text-white dark:bg-dark-900 hover:bg-transparent hover:text-light-100"
-                onClick={() => signIn('github')}
-              >
-                {link.icon}
-                <p className="ml-4">{link.text}</p>
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+      <Stack flex={1} maxW="md" spacing={4}>
+        {LINKS.map((link) => (
+          <LoginButton key={link.text} link={link} />
+        ))}
+      </Stack>
+    </Stack>
   )
 }
 
 export default function Auth() {
   return (
     <Layout>
-      <div className="py-12">
-        <Container>
-          <div className="text-center">
-            <h1 className="font-bold text-5xl leading-normal">
-              Login to Your Account
-            </h1>
-            <p className="mx-auto opacity-50 text-lg font-light mt-4 max-w-2xl">
-              A utility-first CSS framework packed with classes like flex and
-              rotate-90 that can be composed to build any design, directly in
-              your markup.
-            </p>
-          </div>
-          <div className="py-10">
-            <LoginForm />
-          </div>
-          <p className="text-center mt-6">
-            <Link
-              className="underline hover:no-underline hover:opacity-70"
-              href="/"
-            >
-              Forgot Password?
-            </Link>
-          </p>
-        </Container>
-      </div>
+      <Container maxW="container.xl" py="16">
+        <Box textAlign="center" maxW="container.sm" mx="auto">
+          <Heading as="h1" fontWeight="600" size="2xl">
+            Login to Your Account
+          </Heading>
+          <Text mt="4" fontSize="lg" opacity={0.5}>
+            A utility-first CSS framework packed with classes like flex and
+            rotate-90 that can be composed to build any design, directly in your
+            markup.
+          </Text>
+        </Box>
+        <Box py="10">
+          <LoginForm />
+        </Box>
+      </Container>
     </Layout>
   )
 }

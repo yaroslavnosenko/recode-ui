@@ -51,30 +51,46 @@ export const EditMerchantForm = () => {
 
   return (
     <Box as="form" onSubmit={handleSubmit(onSave)}>
-      <SimpleGrid columns={[1, 1, 2]} gap={[4, 4, 8]}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 6, md: 8 }}>
         <Box>
           <FormControl isRequired>
-            <FormLabel>Display name</FormLabel>
-            <Input placeholder="Merchant" {...register('name')} />
+            <FormLabel mb="0">Display name</FormLabel>
+            <Input
+              variant="flushed"
+              placeholder="Merchant"
+              {...register('name')}
+            />
           </FormControl>
 
-          <FormControl mt="4" isRequired>
-            <FormLabel>Unique name</FormLabel>
-            <Input placeholder="your_bussiness" {...register('slug')} />
+          <FormControl mt="6" isRequired>
+            <FormLabel mb="0">Unique name</FormLabel>
+            <Input
+              variant="flushed"
+              placeholder="your_bussiness"
+              {...register('slug')}
+            />
           </FormControl>
         </Box>
         <Box>
           <FormControl isRequired>
-            <FormLabel>Language</FormLabel>
-            <Select placeholder="Language" {...register('lang')}>
+            <FormLabel mb="0">Language</FormLabel>
+            <Select
+              variant="flushed"
+              placeholder="Language"
+              {...register('lang')}
+            >
               <option value="sk">Slovenský</option>
               <option value="en">English</option>
             </Select>
           </FormControl>
 
-          <FormControl mt="4" isRequired>
-            <FormLabel>Currency</FormLabel>
-            <Select placeholder="Currency" {...register('currency')}>
+          <FormControl mt="6" isRequired>
+            <FormLabel mb="0">Currency</FormLabel>
+            <Select
+              variant="flushed"
+              placeholder="Currency"
+              {...register('currency')}
+            >
               <option value="EUR">EUR - Euro</option>
               <option value="USD">USD - US Dollar</option>
             </Select>
@@ -82,20 +98,28 @@ export const EditMerchantForm = () => {
         </Box>
       </SimpleGrid>
 
-      <FormControl mt="4">
-        <FormLabel>Address</FormLabel>
-        <Input placeholder="Address" {...register('address')} />
+      <FormControl mt="6">
+        <FormLabel mb="0">Address</FormLabel>
+        <Input
+          variant="flushed"
+          placeholder="Address"
+          {...register('address')}
+        />
       </FormControl>
 
-      <SimpleGrid columns={[1, 1, 2]} gap={[4, 4, 8]} mt="4">
+      <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 6, md: 8 }} mt="6">
         <FormControl>
-          <FormLabel>Phone</FormLabel>
-          <Input placeholder="Phone" {...register('phone')} />
+          <FormLabel mb="0">Phone</FormLabel>
+          <Input variant="flushed" placeholder="Phone" {...register('phone')} />
         </FormControl>
 
         <FormControl>
-          <FormLabel>Wifi Password</FormLabel>
-          <Input placeholder="********" {...register('wifi')} />
+          <FormLabel mb="0">Wifi Password</FormLabel>
+          <Input
+            variant="flushed"
+            placeholder="********"
+            {...register('wifi')}
+          />
         </FormControl>
       </SimpleGrid>
 

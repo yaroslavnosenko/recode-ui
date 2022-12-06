@@ -45,12 +45,16 @@ export const EditProfileForm = () => {
     <Box as="form" onSubmit={handleSubmit(onSave)} gap="8">
       <FormControl isRequired>
         <FormLabel>Full Name</FormLabel>
-        <Input placeholder="Full Name" {...register('name')} />
+        <Input
+          variant="flushed"
+          placeholder="Full Name"
+          {...register('name')}
+        />
       </FormControl>
 
       <FormControl mt={4}>
         <FormLabel>Email</FormLabel>
-        <Input isDisabled value={user?.email || ''} />
+        <Input variant="flushed" isDisabled value={user?.email || ''} />
       </FormControl>
 
       <Button mt={6} colorScheme="teal" type="submit">

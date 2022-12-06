@@ -22,7 +22,7 @@ import {
 type FormData = Merchant_Set_Input
 
 const MERCHANT_MUTATION = gql`
-  mutation ($input: merchants_insert_input!) {
+  mutation ($input: merchant_insert_input!) {
     insert_merchant_one(
       object: $input
       on_conflict: {

@@ -1,4 +1,4 @@
-import { gql, useMutation, useApolloClient, useQuery } from '@apollo/client'
+import { gql, useApolloClient, useMutation } from '@apollo/client'
 import {
   Box,
   Button,
@@ -11,61 +11,72 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FiSave } from 'react-icons/fi'
 
-import { EMPLOYEES_QUERY, USER_QUERY } from 'queries'
+import { EMPLOYEES_QUERY } from 'queries'
 import {
+  Employee,
   Employee_Set_Input,
-  Mutation_RootInsert_Merchant_OneArgs,
-  Query_Root,
+  Mutation_RootInsert_Employee_OneArgs,
+  Mutation_RootUpdate_Employee_By_PkArgs,
 } from 'types'
 
 type FormData = Employee_Set_Input
 
-const MERCHANT_MUTATION = gql`
-  mutation ($input: merchants_insert_input!) {
-    insert_merchant_one(
-      object: $input
-      on_conflict: {
-        constraint: merchants_userId_key
-        update_columns: [name, slug, lang, currency, phone, address, wifi]
-      }
-    ) {
+const EMPLOYEE_INSERT_MUTATION = gql`
+  mutation ($input: employee_insert_input!) {
+    insert_employee_one(object: $input) {
+      id
+    }
+  }
+`
+
+const EMPLOYEE_UPDATE_MUTATION = gql`
+  mutation (
+    $_set: employee_set_input!
+    $pk_columns: employee_pk_columns_input!
+  ) {
+    update_employee_by_pk(_set: $_set, pk_columns: $pk_columns) {
       id
     }
   }
 `
 
 interface Props {
-  id?: string
+  employee: Employee | undefined
+  merchantId: string
 }
 
-export const EditEmployeeForm = ({ id }: Props) => {
+export const EditEmployeeForm = ({ employee, merchantId }: Props) => {
   const { register, handleSubmit, setValue } = useForm<FormData>()
-
   const client = useApolloClient()
 
-  const { data, loading } = useQuery<Query_Root>(EMPLOYEES_QUERY, {
-    variables: { id },
-  })
-  setValue('id', id)
+  setValue('merchantId', merchantId)
   useEffect(() => {
-    setValue('name', '')
-    setValue('username', '')
-    setValue('pin', '')
-  }, [data, setValue])
+    setValue('name', employee?.name)
+    setValue('username', employee?.username)
+    setValue('pin', employee?.pin)
+  }, [setValue, employee])
 
-  const [save] =
-    useMutation<Mutation_RootInsert_Merchant_OneArgs>(MERCHANT_MUTATION)
+  const [insert] = useMutation<Mutation_RootInsert_Employee_OneArgs>(
+    EMPLOYEE_INSERT_MUTATION
+  )
 
-  const onSave = (input: FormData) =>
-    save({ variables: { input } }).finally(() =>
-      client.refetchQueries({ include: [USER_QUERY] })
-    )
+  const [update] = useMutation<Mutation_RootUpdate_Employee_By_PkArgs>(
+    EMPLOYEE_UPDATE_MUTATION
+  )
+
+  const onSave = (input: FormData) => {
+    const id = employee?.id
+    const save = id
+      ? () => update({ variables: { _set: input, pk_columns: { id } } })
+      : () => insert({ variables: { input } })
+    save().finally(() => client.refetchQueries({ include: [EMPLOYEES_QUERY] }))
+  }
 
   return (
     <Box as="form" onSubmit={handleSubmit(onSave)}>
       <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 6, md: 8 }}>
         <Box>
-          <FormControl isRequired isDisabled={loading}>
+          <FormControl isRequired>
             <FormLabel mb="0">Full Name</FormLabel>
             <Input
               variant="flushed"

@@ -24,8 +24,10 @@ export const EMPLOYEES_QUERY = gql`
   query ($id: uuid!) {
     users_by_pk(id: $id) {
       merchant {
+        id
         employees {
           id
+          username
           name
           pin
         }

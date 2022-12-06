@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client'
 import { Box, Button, Heading, HStack, Text } from '@chakra-ui/react'
 import { FiPlus } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { EmployeeList, Layout, LayoutContainer } from 'components/app'
 import { APP_ROUTES } from 'configs'
@@ -10,13 +10,17 @@ import { EMPLOYEES_QUERY } from 'queries'
 import { Employee, Query_Root } from 'types'
 
 export const Employees = () => {
+  const navigate = useNavigate()
   const { id } = useToken()
   const { data } = useQuery<Query_Root>(EMPLOYEES_QUERY, {
     variables: { id },
   })
 
-  const employees: Employee[] = data?.users_by_pk?.merchant?.employees || []
-  console.log(employees)
+  const employees: Employee[] | undefined =
+    data?.users_by_pk?.merchant?.employees
+
+  const onSelect = (employee: Employee) =>
+    navigate(APP_ROUTES.EMPLOYEE.replace(':id', employee.id))
 
   return (
     <Layout>
@@ -46,7 +50,7 @@ export const Employees = () => {
             </Button>
           </Link>
         </HStack>
-        <EmployeeList />
+        <EmployeeList employees={employees} onSelect={onSelect} />
       </LayoutContainer>
     </Layout>
   )

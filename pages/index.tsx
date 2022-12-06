@@ -69,12 +69,7 @@ export default function Index() {
 
       {/* FEATURES */}
       <Container maxW="5xl" mb={{ base: 16, md: 32 }}>
-        <SimpleGrid
-          columns={{ base: 1, md: 2 }}
-          gap="16"
-          alignItems="center"
-          className="max-w-5xl items-center mx-auto grid grid-cols-1 md:grid-cols-2 gap-16"
-        >
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap="16" alignItems="center">
           <Box textAlign={{ base: 'start', md: 'end' }}>
             <Feature
               title={'QR code menu increases sales'}
@@ -126,25 +121,29 @@ export default function Index() {
         </SimpleGrid>
       </Container>
 
-      <Container>
-        <div className="mb-16 md:mb-32 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-32">
-          <div className="hidden md:block">
+      <Container maxW="5xl" mb={{ base: 16, md: 32 }}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap="16" alignItems="center">
+          <Box>
             <Phone>
               <NextImage
                 className="rounded-3xl"
-                alt="Screenshot Light"
+                alt="Screenshot Dark"
                 src={'/s-l.png'}
                 width="280"
                 height="560"
               />
             </Phone>
-          </div>
-
-          <div>
+          </Box>
+          <Box>
             <Feature
               title={'Saving business resources'}
               icon={
-                <FiPocket className="text-brand w-10 h-10" strokeWidth={1.5} />
+                <Icon
+                  as={FiPocket}
+                  strokeWidth={1.5}
+                  color="teal.500"
+                  boxSize={10}
+                />
               }
               body={
                 <>
@@ -157,7 +156,12 @@ export default function Index() {
             <Feature
               title={'Attracting new customers'}
               icon={
-                <FiZap className="text-brand w-10 h-10" strokeWidth={1.5} />
+                <Icon
+                  as={FiZap}
+                  strokeWidth={1.5}
+                  color="teal.500"
+                  boxSize={10}
+                />
               }
               body={
                 <>
@@ -166,21 +170,21 @@ export default function Index() {
                 </>
               }
             />
-            <div className="md:inline-block mt-12">
+            <Box display="inline-block" mt="8">
               <CtaButton />
-            </div>
-          </div>
-        </div>
+            </Box>
+          </Box>
+        </SimpleGrid>
       </Container>
 
       {/* PRICING */}
-      <Container>
-        <div
-          className="py-16 md:py-32 max-w-5xl items-center mx-auto border-t dark:border-t-dark-700 border-t-light-300"
-          id="pricing"
-        >
-          <Pricing />
-        </div>
+      <Container
+        maxWidth="container.lg"
+        borderTopWidth="1px"
+        py={{ base: 16, md: 32 }}
+        id="pricing"
+      >
+        <Pricing />
       </Container>
     </Layout>
   )

@@ -1,5 +1,14 @@
+import {
+  Box,
+  Button,
+  Heading,
+  HStack,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
 import Image from 'next/image'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { PropsWithChildren } from 'react'
 import { FiArrowRight, FiCheckCircle } from 'react-icons/fi'
 
@@ -10,32 +19,38 @@ import { ROUTES } from 'configs'
 
 const Feature = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex mt-4 items-center">
-      <FiCheckCircle className="w-5 h-5 min-w-[20px] text-brand" />
-      <p className="ml-4">{children}</p>
-    </div>
+    <HStack mt="4" alignItems="center" spacing="4">
+      <Box color="teal.500">
+        <FiCheckCircle strokeWidth={3} />
+      </Box>
+      <Text>{children}</Text>
+    </HStack>
   )
 }
 
 export const Pricing = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
-      <div>
-        <h2 className="text-md text-brand font-bold uppercase tracking-widest">
+    <SimpleGrid spacing={16} columns={{ base: 1, md: 2 }} alignItems="center">
+      <Box>
+        <Heading textTransform="uppercase" size="md" color="teal.500">
           Pricing
-        </h2>
-        <p className="opacity-50 mt-4">
+        </Heading>
+        <Text opacity={0.5} mt="4">
           Working with digital menu is easier. Loading of the menu is faster.
           There is more useful information in digital menu.
-        </p>
-        <div className="flex py-8 items-baseline">
-          <p className="text-5xl font-medium leading-tight">$39</p>
-          <p className="opacity-50 ml-2">per month</p>
-        </div>
+        </Text>
+        <HStack py="8" alignItems="baseline">
+          <Text fontSize="5xl" fontWeight="500">
+            $59
+          </Text>
+          <Text opacity={0.5} ms="2">
+            per month
+          </Text>
+        </HStack>
 
-        <div className="inline-block mb-8">
+        <Box display="inline-block" mb="8">
           <CtaButton />
-        </div>
+        </Box>
 
         <Feature>An ability to remotely edit your menu</Feature>
         <Feature>
@@ -46,30 +61,29 @@ export const Pricing = () => {
           Wi-Fi password)
         </Feature>
         <Feature>Both a mobile and a desktop version of the menu</Feature>
-      </div>
-      <div>
-        <Phone>
-          <div className="px-6 text-center">
-            <p className="text-md mb-4">Scan QR Code bellow to see demo</p>
-            <div className="dark:bg-dark-700 bg-light-300">
-              <Image
-                className="dark:invert"
-                alt="Demo QR Code"
-                src={'/qr-demo.svg'}
-                width="280"
-                height="280"
-              />
-            </div>
-            <Link
-              className="hover:opacity-70 active:opacity-50 inline-flex font-medium items-center justify-between py-3 px-5 text-md text-brand"
-              href={ROUTES.QR('demo')}
-            >
-              <p className="mr-4">See Demo</p>
-              <FiArrowRight strokeWidth={3} />
-            </Link>
-          </div>
+      </Box>
+
+      <Box>
+        <Phone bgGradient="none" bg="gray.100">
+          <Stack px="4" textAlign="center">
+            <Text mb="2">Scan QR Code bellow to see demo</Text>
+            <Image
+              alt="Demo QR Code"
+              src={'/qr-demo.svg'}
+              width="280"
+              height="280"
+            />
+            <NextLink href={ROUTES.QR('demo')}>
+              <Button
+                fontWeight="500"
+                rightIcon={<FiArrowRight strokeWidth={3} />}
+              >
+                See Demo
+              </Button>
+            </NextLink>
+          </Stack>
         </Phone>
-      </div>
-    </div>
+      </Box>
+    </SimpleGrid>
   )
 }

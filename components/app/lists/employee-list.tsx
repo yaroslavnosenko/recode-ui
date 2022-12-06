@@ -10,14 +10,18 @@ import {
 } from '@chakra-ui/react'
 import { FiMoreVertical } from 'react-icons/fi'
 
-const Item = () => {
+interface Props {
+  name: string
+}
+
+const Item = ({ name }: Props) => {
   const bg = useColorModeValue('gray.100', 'dark.800')
   return (
     <HStack borderWidth={1} bg={bg} p="4" borderRadius="md" spacing={4}>
-      <Avatar name="M S" bg="teal.500" />
+      <Avatar name={name} />
       <Box flex={1}>
         <Heading noOfLines={1} size="sm">
-          Yaroslav Nosenko
+          {name}
         </Heading>
         <Text noOfLines={1} opacity="0.5">
           yaroslav_nosenko
@@ -35,9 +39,11 @@ const Item = () => {
 export const EmployeeList = () => {
   return (
     <SimpleGrid columns={[1, 1, 2, 2, 3]} gap={6}>
-      {[0, 1, 2, 3, 4, 5, 6, 7].map((key) => (
-        <Item key={key} />
-      ))}
+      {['Nicole Price', 'Willie Mendoza', 'Eric Cooper', 'Perry Armstrong'].map(
+        (user) => (
+          <Item key={user} name={user} />
+        )
+      )}
     </SimpleGrid>
   )
 }

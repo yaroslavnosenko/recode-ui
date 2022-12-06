@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import NextLink from 'next/link'
@@ -29,6 +30,7 @@ const Feature = ({ children }: PropsWithChildren) => {
 }
 
 export const Pricing = () => {
+  const bg = useColorModeValue('gray.100', 'dark.800')
   return (
     <SimpleGrid spacing={16} columns={{ base: 1, md: 2 }} alignItems="center">
       <Box>
@@ -64,7 +66,7 @@ export const Pricing = () => {
       </Box>
 
       <Box>
-        <Phone bgGradient="none" bg="gray.100">
+        <Phone bgGradient="none" bg={bg}>
           <Stack px="4" textAlign="center">
             <Text mb="2">Scan QR Code bellow to see demo</Text>
             <Image
@@ -77,6 +79,7 @@ export const Pricing = () => {
               <Button
                 fontWeight="500"
                 rightIcon={<FiArrowRight strokeWidth={3} />}
+                bg="transparent"
               >
                 See Demo
               </Button>

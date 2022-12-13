@@ -4,7 +4,7 @@ import { MerchantInfo, SearchInput, Toolbar, Categories } from 'components/menu'
 
 export default function MenuPage() {
   return (
-    <Box>
+    <Box pb="32">
       <MerchantInfo />
       <SearchInput />
       <Categories />

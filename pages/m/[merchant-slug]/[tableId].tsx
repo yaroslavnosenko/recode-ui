@@ -15,7 +15,7 @@ export default function MenuPage() {
   })
   return (
     <MenuProvider>
-      <Box pb="32">
+      <Box pb="40">
         <MerchantInfo />
         <SearchInput />
         <Categories registerSection={registerSection} />

@@ -4,8 +4,14 @@ import {
   HStack,
   useColorModeValue,
   Link,
+  Button,
+  Text,
+  Icon,
 } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { FiBell } from 'react-icons/fi'
 
+import { MenuContext } from 'components/menu'
 import { DATA } from 'mock/data'
 
 interface Props {
@@ -15,6 +21,7 @@ interface Props {
 
 export const Toolbar = ({ registerTrigger, active }: Props) => {
   const bg = useColorModeValue('white', 'dark.900')
+  const { getSum, order } = useContext(MenuContext)
 
   return (
     <Box
@@ -43,6 +50,25 @@ export const Toolbar = ({ registerTrigger, active }: Props) => {
             )
           })}
         </HStack>
+        {order.length !== 0 && (
+          <Box pb="6" pt="2">
+            <Button
+              size="lg"
+              colorScheme="teal"
+              display="flex"
+              w="full"
+              justifyContent="space-between"
+              fontSize="md"
+              px="4"
+            >
+              <HStack spacing={4}>
+                <Icon strokeWidth={3} as={FiBell} />
+                <Text>Make Order</Text>
+              </HStack>
+              <Text fontWeight="normal">{getSum().toFixed(2)} €</Text>
+            </Button>
+          </Box>
+        )}
       </Container>
     </Box>
   )

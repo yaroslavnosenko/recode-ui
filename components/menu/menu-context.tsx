@@ -7,6 +7,7 @@ interface MenuContextProps {
   addProduct: (product: Product) => void
   removeProduct: (productId: string) => void
   getQuantity: (id: string) => number
+  getSum: () => number
 }
 
 export const MenuContext = React.createContext<MenuContextProps>({
@@ -14,6 +15,7 @@ export const MenuContext = React.createContext<MenuContextProps>({
   addProduct: () => {},
   removeProduct: () => {},
   getQuantity: () => 0,
+  getSum: () => 0,
 })
 
 export const MenuProvider = (props: PropsWithChildren) => {
@@ -47,9 +49,14 @@ export const MenuProvider = (props: PropsWithChildren) => {
   const getQuantity = (id: string) =>
     order.find((row) => row.product.id === id)?.quantity || 0
 
+  const getSum = () =>
+    order
+      .map((row) => row.quantity * row.product.price)
+      .reduce((a, b) => a + b, 0)
+
   return (
     <MenuContext.Provider
-      value={{ order, addProduct, removeProduct, getQuantity }}
+      value={{ order, addProduct, removeProduct, getQuantity, getSum }}
       {...props}
     />
   )

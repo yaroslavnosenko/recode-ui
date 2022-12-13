@@ -18,9 +18,7 @@ const ProductItem = ({ product }: { product: Product }) => {
   return (
     <HStack spacing="6" alignItems="flex-start">
       <Stack flex={1}>
-        <Heading fontWeight="500" size="sm">
-          {product.name}
-        </Heading>
+        <Heading size="sm">{product.name}</Heading>
         <Text opacity={0.5}>{product.description}</Text>
         <Text fontWeight="500" color="teal.500">
           {product.price.toFixed(2)} Euro

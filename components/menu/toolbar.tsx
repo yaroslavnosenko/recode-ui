@@ -2,14 +2,20 @@ import {
   Box,
   Container,
   HStack,
-  Link,
   useColorModeValue,
+  Link,
 } from '@chakra-ui/react'
 
-const CATEGORIES = ['Pizza', 'Deserts', 'Cakes', 'Coffee']
+import { DATA } from 'mock/data'
 
-export const Toolbar = () => {
+interface Props {
+  active: string | undefined
+  registerTrigger: (id: string) => (el: any) => void
+}
+
+export const Toolbar = ({ registerTrigger, active }: Props) => {
   const bg = useColorModeValue('white', 'dark.900')
+
   return (
     <Box
       pos="fixed"
@@ -22,15 +28,20 @@ export const Toolbar = () => {
     >
       <Container maxW="container.sm">
         <HStack spacing="6">
-          {CATEGORIES.map((item) => (
-            <Link
-              key={item}
-              _hover={{ textDecoration: 'none' }}
-              fontWeight="500"
-            >
-              {item}
-            </Link>
-          ))}
+          {DATA.map((cat) => {
+            const isActive = active === cat.id
+            return (
+              <Link
+                key={cat.id}
+                _hover={{ textDecoration: 'none' }}
+                fontWeight="500"
+                ref={registerTrigger(cat.id)}
+                opacity={isActive ? 1 : 0.5}
+              >
+                {cat.name}
+              </Link>
+            )
+          })}
         </HStack>
       </Container>
     </Box>

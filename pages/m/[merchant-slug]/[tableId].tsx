@@ -1,14 +1,18 @@
 import { Box } from '@chakra-ui/react'
+import { useActiveMenu } from 'react-active-menu'
 
 import { MerchantInfo, SearchInput, Toolbar, Categories } from 'components/menu'
 
 export default function MenuPage() {
+  const { registerSection, registerTrigger, activeId } = useActiveMenu({
+    smooth: true,
+  })
   return (
     <Box pb="32">
       <MerchantInfo />
       <SearchInput />
-      <Categories />
-      <Toolbar />
+      <Categories registerSection={registerSection} />
+      <Toolbar registerTrigger={registerTrigger} active={activeId} />
     </Box>
   )
 }

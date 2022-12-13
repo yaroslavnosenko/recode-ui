@@ -62,7 +62,7 @@ export const Toolbar = ({ registerTrigger, active }: Props) => {
               px="4"
             >
               <HStack spacing={4}>
-                <Icon strokeWidth={3} as={FiBell} />
+                <Icon as={FiBell} />
                 <Text>Make Order</Text>
               </HStack>
               <Text fontWeight="normal">{getSum().toFixed(2)} €</Text>

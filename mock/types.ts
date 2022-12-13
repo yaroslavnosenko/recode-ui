@@ -11,3 +11,8 @@ export interface Category {
   name: string
   products: Product[]
 }
+
+export interface MenuOrderRow {
+  product: Product
+  quantity: number
+}

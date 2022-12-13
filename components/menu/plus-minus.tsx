@@ -1,25 +1,34 @@
+import { HStack, IconButton, StackProps, Text } from '@chakra-ui/react'
 import { FiMinus, FiPlus } from 'react-icons/fi'
 
-interface Props {
+interface Props extends StackProps {
+  quantity: number
   onPlus: () => void
   onMinus: () => void
 }
 
-export const PlusMinus = ({ onMinus, onPlus }: Props) => {
+export const PlusMinus = ({ onMinus, onPlus, quantity, ...other }: Props) => {
   return (
-    <div className="mt-4 flex gap-6 md:max-w-xs">
-      <button
-        className="bg-light-300 dark:bg-dark-700 flex-1 flex items-center justify-center rounded-md py-2 active:opacity-50"
-        onClick={onMinus}
-      >
-        <FiMinus strokeWidth={3} className="opacity-50" />
-      </button>
-      <button
-        className="bg-brand text-white flex-1 flex items-center justify-center rounded-md py-2 active:opacity-50"
-        onClick={onPlus}
-      >
-        <FiPlus strokeWidth={3} />
-      </button>
-    </div>
+    <HStack spacing={0} {...other}>
+      <IconButton
+        onClick={(event) => {
+          event.stopPropagation()
+          onMinus()
+        }}
+        aria-label="minus"
+        icon={<FiMinus strokeWidth={3} />}
+      />
+      <Text textAlign="center" minW="10">
+        {quantity}
+      </Text>
+      <IconButton
+        onClick={(event) => {
+          event.stopPropagation()
+          onPlus()
+        }}
+        aria-label="minus"
+        icon={<FiPlus strokeWidth={3} />}
+      />
+    </HStack>
   )
 }

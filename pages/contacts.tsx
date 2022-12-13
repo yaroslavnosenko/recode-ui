@@ -24,3 +24,5 @@ export default function Contacts() {
     </Layout>
   )
 }
+
+export { getServerSideProps } from 'components/chakra'

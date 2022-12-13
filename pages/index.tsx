@@ -189,3 +189,5 @@ export default function Index() {
     </Layout>
   )
 }
+
+export { getServerSideProps } from 'components/chakra'

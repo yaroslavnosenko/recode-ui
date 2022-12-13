@@ -1,19 +1,18 @@
-import { ChakraProvider } from '@chakra-ui/react'
 import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
-import '@fontsource/outfit/variable.css'
 
-import { theme } from 'theme'
+import { Chakra } from 'components/chakra'
+import '@fontsource/outfit/variable.css'
 
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
+    <Chakra cookies={pageProps.cookies}>
       <SessionProvider session={session}>
         <Component {...pageProps} />
       </SessionProvider>
-    </ChakraProvider>
+    </Chakra>
   )
 }

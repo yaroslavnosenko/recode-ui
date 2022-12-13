@@ -1,25 +1,36 @@
+import {
+  Box,
+  Container,
+  Icon,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+} from '@chakra-ui/react'
 import { useState } from 'react'
 import { FiSearch, FiX } from 'react-icons/fi'
 
 export const SearchInput = () => {
   const [value, setValue] = useState<string>('')
   return (
-    <div className="relative">
-      <FiSearch className="opacity-50 h-12 w-12 absolute left-0 top-0 p-3" />
-      <input
-        className="py-3 px-12 block w-full border-none rounded-md bg-light-300 dark:bg-dark-700 placeholder:text-black dark:placeholder:text-white placeholder:opacity-50 focus:ring-2 focus:ring-brand"
-        type="text"
-        name="search"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-        placeholder="Search in menu..."
-      />
-      {!!value && (
-        <FiX
-          className="opacity-50 h-12 w-12 absolute right-0 top-0 p-3 cursor-pointer"
-          onClick={() => setValue('')}
-        />
-      )}
-    </div>
+    <Box>
+      <Container maxW="container.sm">
+        <InputGroup variant="filled">
+          <InputLeftElement pointerEvents="none">
+            <Icon as={FiSearch} />
+          </InputLeftElement>
+          <Input
+            placeholder="Search in menu..."
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+          />
+          {value && (
+            <InputRightElement cursor="pointer" onClick={() => setValue('')}>
+              <Icon as={FiX} />
+            </InputRightElement>
+          )}
+        </InputGroup>
+      </Container>
+    </Box>
   )
 }

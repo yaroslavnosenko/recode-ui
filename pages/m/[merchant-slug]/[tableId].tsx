@@ -1,4 +1,19 @@
-// import { useState } from 'react'
+import { Box } from '@chakra-ui/react'
+
+import { MerchantInfo, SearchInput, Toolbar, Categories } from 'components/menu'
+
+export default function MenuPage() {
+  return (
+    <Box>
+      <MerchantInfo />
+      <SearchInput />
+      <Categories />
+      <Toolbar />
+    </Box>
+  )
+}
+
+export { getServerSideProps } from 'components/chakra'
 
 // import {
 //   Layout,

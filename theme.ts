@@ -37,6 +37,13 @@ export const theme = extendTheme({
         },
       }),
     },
+    Modal: {
+      baseStyle: (props: any) => ({
+        dialog: {
+          bg: mode('white', 'dark.900')(props),
+        },
+      }),
+    },
     Button: {
       baseStyle: {
         fontWeight: 500,

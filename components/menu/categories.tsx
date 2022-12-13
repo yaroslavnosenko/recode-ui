@@ -1,17 +1,18 @@
 import { Box, Container, Heading, Stack } from '@chakra-ui/react'
+import { useContext } from 'react'
 
-import { ProductList } from 'components/menu'
-import { DATA } from 'mock/data'
+import { MenuContext, ProductList } from 'components/menu'
 
 interface Props {
   registerSection: (id: string) => (el: any) => void
 }
 
 export const Categories = ({ registerSection }: Props) => {
+  const { categories } = useContext(MenuContext)
   return (
     <Container maxW="container.sm">
       <Stack spacing="0">
-        {DATA.map((cat) => (
+        {categories.map((cat) => (
           <Box key={cat.id} py="6" ref={registerSection(cat.id)}>
             <Heading fontWeight="600" size="md" mb="6">
               {cat.name}

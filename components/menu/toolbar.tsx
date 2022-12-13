@@ -16,10 +16,11 @@ import { DATA } from 'mock/data'
 
 interface Props {
   active: string | undefined
+  onMakeOrder: () => void
   registerTrigger: (id: string) => (el: any) => void
 }
 
-export const Toolbar = ({ registerTrigger, active }: Props) => {
+export const Toolbar = ({ registerTrigger, active, onMakeOrder }: Props) => {
   const bg = useColorModeValue('white', 'dark.900')
   const { getSum, order } = useContext(MenuContext)
 
@@ -53,6 +54,7 @@ export const Toolbar = ({ registerTrigger, active }: Props) => {
         {order.length !== 0 && (
           <Box pb="6" pt="2">
             <Button
+              onClick={onMakeOrder}
               size="lg"
               colorScheme="teal"
               display="flex"
@@ -62,7 +64,7 @@ export const Toolbar = ({ registerTrigger, active }: Props) => {
               px="4"
             >
               <HStack spacing={4}>
-                <Icon strokeWidth={2} as={FiBell} />
+                <Icon strokeWidth={2.5} as={FiBell} />
                 <Text>Make Order</Text>
               </HStack>
               <Text fontWeight="normal">{getSum().toFixed(2)} €</Text>

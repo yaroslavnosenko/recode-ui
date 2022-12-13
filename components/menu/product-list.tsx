@@ -12,7 +12,12 @@ import { useContext } from 'react'
 import { MenuContext, PlusMinus } from 'components/menu'
 import { Product } from 'mock/types'
 
-const Item = ({ product }: { product: Product }) => {
+interface ItemProps {
+  product: Product
+  hideLine?: boolean
+}
+
+const Item = ({ product, hideLine }: ItemProps) => {
   const bgColor = useColorModeValue('gray.100', 'dark.800')
   const { getQuantity, addProduct, removeProduct } = useContext(MenuContext)
   const quantity = getQuantity(product.id)
@@ -49,7 +54,7 @@ const Item = ({ product }: { product: Product }) => {
         />
       )}
 
-      {isActive && (
+      {isActive && !hideLine && (
         <Box pos="absolute" left="-6" top="0" w="4px" h="full" bg="teal.500" />
       )}
     </Box>
@@ -58,13 +63,14 @@ const Item = ({ product }: { product: Product }) => {
 
 interface Props {
   products: Product[]
+  hideLine?: boolean
 }
 
-export const ProductList = ({ products }: Props) => {
+export const ProductList = ({ products, hideLine }: Props) => {
   return (
     <Stack spacing={6} divider={<StackDivider />}>
       {products.map((product) => (
-        <Item key={product.id} product={product} />
+        <Item key={product.id} product={product} hideLine={hideLine} />
       ))}
     </Stack>
   )

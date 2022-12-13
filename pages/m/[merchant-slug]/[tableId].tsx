@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react'
+import { useState } from 'react'
 import { useActiveMenu } from 'react-active-menu'
 
 import {
@@ -7,19 +8,30 @@ import {
   Toolbar,
   Categories,
   MenuProvider,
+  OrderModal,
 } from 'components/menu'
+import { DATA } from 'mock/data'
 
 export default function MenuPage() {
   const { registerSection, registerTrigger, activeId } = useActiveMenu({
     smooth: true,
   })
+
+  const [showOrder, setShowOrder] = useState<boolean>(false)
+
   return (
-    <MenuProvider>
+    <MenuProvider categories={DATA}>
       <Box pb="40">
         <MerchantInfo />
         <SearchInput />
         <Categories registerSection={registerSection} />
-        <Toolbar registerTrigger={registerTrigger} active={activeId} />
+        <Toolbar
+          registerTrigger={registerTrigger}
+          active={activeId}
+          onMakeOrder={() => setShowOrder(true)}
+        />
+        {showOrder && <OrderModal onClose={() => setShowOrder(false)} />}
+        <Box pb="env(safe-area-inset-bottom)" />
       </Box>
     </MenuProvider>
   )

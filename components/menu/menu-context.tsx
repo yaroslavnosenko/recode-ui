@@ -1,8 +1,9 @@
 import React, { PropsWithChildren, useState } from 'react'
 
-import { MenuOrderRow, Product } from 'mock/types'
+import { Category, MenuOrderRow, Product } from 'mock/types'
 
 interface MenuContextProps {
+  categories: Category[]
   order: MenuOrderRow[]
   addProduct: (product: Product) => void
   removeProduct: (productId: string) => void
@@ -11,6 +12,7 @@ interface MenuContextProps {
 }
 
 export const MenuContext = React.createContext<MenuContextProps>({
+  categories: [],
   order: [],
   addProduct: () => {},
   removeProduct: () => {},
@@ -18,7 +20,14 @@ export const MenuContext = React.createContext<MenuContextProps>({
   getSum: () => 0,
 })
 
-export const MenuProvider = (props: PropsWithChildren) => {
+interface MenuProviderProps {
+  categories: Category[]
+}
+
+export const MenuProvider = ({
+  categories,
+  ...props
+}: PropsWithChildren<MenuProviderProps>) => {
   const [order, setOrder] = useState<MenuOrderRow[]>([])
 
   const addProduct = (product: Product) => {
@@ -28,8 +37,12 @@ export const MenuProvider = (props: PropsWithChildren) => {
     if (!row) {
       setOrder([...order, { product, quantity: 1 }])
     } else {
-      const other = order.filter((some) => some !== row)
-      setOrder([...other, { ...row, quantity: row.quantity + 1 }])
+      for (const row of order) {
+        if (row.product.id === product.id) {
+          row.quantity = row.quantity + 1
+        }
+      }
+      setOrder([...order])
     }
   }
 
@@ -42,7 +55,12 @@ export const MenuProvider = (props: PropsWithChildren) => {
     if (row.quantity === 1) {
       setOrder([...other])
     } else {
-      setOrder([...other, { ...row, quantity: row.quantity - 1 }])
+      for (const row of order) {
+        if (row.product.id === id) {
+          row.quantity = row.quantity - 1
+        }
+      }
+      setOrder([...order])
     }
   }
 
@@ -56,7 +74,14 @@ export const MenuProvider = (props: PropsWithChildren) => {
 
   return (
     <MenuContext.Provider
-      value={{ order, addProduct, removeProduct, getQuantity, getSum }}
+      value={{
+        categories,
+        order,
+        addProduct,
+        removeProduct,
+        getQuantity,
+        getSum,
+      }}
       {...props}
     />
   )

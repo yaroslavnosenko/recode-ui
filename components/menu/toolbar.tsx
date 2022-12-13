@@ -20,14 +20,14 @@ export const Toolbar = ({ registerTrigger, active }: Props) => {
     <Box
       pos="fixed"
       w="full"
-      py="4"
       borderTopWidth="1px"
       bottom="0"
       left="0"
       bg={bg}
+      pb="env(safe-area-inset-bottom)"
     >
       <Container maxW="container.sm">
-        <HStack spacing="6">
+        <HStack spacing="6" py="4">
           {DATA.map((cat) => {
             const isActive = active === cat.id
             return (
